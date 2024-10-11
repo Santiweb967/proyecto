@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facturación Electrónica</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="main-header">
+        <label for="btn-nav" class="btn-nav"><i class="fas fa-bars"></i></label>
+        <input type="checkbox" id="btn-nav">
+        <nav>
+			<ul class="navigation">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="stok.html">stok</a></li>
+                <li><a href="facturacion.html">Facturacion</a></li>
+				<li><a href="perfil.html">perfil</a></li>
+				<li><a href="edit.html">Editar perfil</a></li>
+			  </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="factura">
+            <h2>Generar Factura</h2>
+            <form>
+                <label for="nombre">Nombre del Cliente:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="rfc">RFC:</label>
+                <input type="text" id="rfc" name="rfc" required>
+
+                <label for="producto">Producto:</label>
+                <input type="text" id="producto" name="producto" required>
+
+                <label for="cantidad">Cantidad:</label>
+                <input type="number" id="cantidad" name="cantidad" required>
+
+                <label for="precio">Precio por Unidad:</label>
+                <input type="number" id="precio" name="precio" required>
+
+                <button type="submit">Generar Factura</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Facturación Electrónica</p>
+    </footer>
+</body>
+</html>
