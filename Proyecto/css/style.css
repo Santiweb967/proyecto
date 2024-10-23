@@ -36,6 +36,10 @@
     transition:.4s ease;
   }
   
+  svg{
+    width: 20px;
+    height: 30px;
+  }
   .navigation li{
     list-style:none;
     width: 100%;
