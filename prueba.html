@@ -1,4 +1,88 @@
-let editIndex = -1; // Para saber si estamos editando un producto
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Módulo de Stock</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    margin: auto;
+}
+
+input, button {
+    margin-bottom: 10px;
+    padding: 8px;
+    font-size: 16px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+button {
+    margin: 0 5px;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Módulo de Stock</h1>
+
+    <section>
+        <h2>Registrar Producto</h2>
+        <form id="product-form">
+            <input type="text" id="product-name" placeholder="Nombre del Producto" required>
+            <input type="number" id="product-quantity" placeholder="Cantidad Inicial" required>
+            <input type="number" id="product-price" placeholder="Precio Unitario" required>
+            <button type="submit">Registrar Producto</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>Informe de Inventario</h2>
+        <table id="product-table">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad Disponible</th>
+                    <th>Precio Unitario</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </section>
+
+    <script>
+        let editIndex = -1; // Para saber si estamos editando un producto
 const products = []; // Array para almacenar los productos
 
 document.getElementById('product-form').addEventListener('submit', function(event) {
@@ -63,3 +147,7 @@ function deleteProduct(button) {
     const row = button.parentNode.parentNode;
     row.parentNode.removeChild(row);
 }
+
+    </script>
+</body>
+</html>
