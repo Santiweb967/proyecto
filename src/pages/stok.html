@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Stock</title>
+    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="../public/css/stok.css">
+</head>
+<body>
+    <header class="main-header">
+        <label for="btn-nav" class="btn-nav"><i class="fas fa-bars"></i><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
+            <path d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z"></path>
+            </svg></label>
+        <input type="checkbox" id="btn-nav">
+        <nav>
+			<ul class="navigation">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="stok.html">stok</a></li>
+                <li><a href="facturacion.html">Facturacion</a></li>
+				<li><a href="perfil.html">perfil</a></li>
+				<li><a href="edit.html">Editar perfil</a></li>
+			  </ul>
+        </nav>
+    </header>
+    <main>
+        <form id="product-form">
+            <input type="text" id="product-name" placeholder="Nombre del producto" required>
+            <input type="number" id="product-quantity" placeholder="Cantidad" required>
+            <input type="number" id="product-price" placeholder="Precio Unitario" required>
+            <button type="submit">Agregar Producto</button>
+        </form>
+
+        <table id="product-table">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio Unitario</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Los productos se agregarán aquí -->
+            </tbody>
+        </table>
+    </main>
+    <script src="../public/js/stok.js"></script>
+    <footer>
+        <p>&copy; 2024 Gestión de Stock</p>
+    </footer>
+</body>
+</html>
