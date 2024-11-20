@@ -125,6 +125,33 @@ app.get('/getProfile', (req, res) => {
         });
     });
 });
+// Ruta para obtener todos los perfiles de usuario
+app.get('/getAllProfiles', (req, res) => {
+    // Consultar todos los usuarios de la base de datos
+    db.query('SELECT nombre, email, cargo FROM usuarios', (err, results) => {
+        if (err) {
+            return res.status(500).json({ error: 'Error en la base de datos' });
+        }
+
+        // Verificar si hay usuarios
+        if (results.length === 0) {
+            return res.status(404).json({ error: 'No se encontraron usuarios' });
+        }
+
+        // Devolver los datos de todos los usuarios
+        return res.status(200).json(results);
+    });
+});
+
+app.post('/updateCargo', (req, res) => {
+    const { email, newCargo } = req.body;
+    db.query('UPDATE usuarios SET cargo = ? WHERE email = ?', [newCargo, email], (err, results) => {
+        if (err) {
+            return res.status(500).json({ success: false, message: 'Error al actualizar el cargo' });
+        }
+        res.status(200).json({ success: true, message: 'Cargo actualizado correctamente' });
+    });
+});
 
 
 // Iniciar el servidor
