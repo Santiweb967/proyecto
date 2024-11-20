@@ -3,34 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Perfil de usuario en el sistema de gestión.">
+    <meta name="author" content="Tu Nombre o Empresa">
     <title>Perfil de Usuario</title>
     <link rel="stylesheet" href="../public/css/style.css">
     <link rel="stylesheet" href="../public/css/profiel.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- Font Awesome para íconos -->
 </head>
 <body>
     <header class="main-header">
-      <label for="btn-nav" class="btn-nav"><i class="fas fa-bars"></i><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
-        <path d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z"></path>
-        </svg></label>
+        <label for="btn-nav" class="btn-nav" aria-label="Abrir menú de navegación">
+            <i class="fas fa-bars"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
+                <path d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z"></path>
+            </svg>
+        </label>
         <input type="checkbox" id="btn-nav">
         <nav>
             <ul class="navigation">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="stok.html">stok</a></li>
-          <li><a href="facturacion.html">Facturacion</a></li>
-          <li><a href="perfil.html">perfil</a></li>
-          <li><a href="edit.html">Editar perfil</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="stok.html">Stock</a></li>
+                <li><a href="facturacion.html">Facturación</a></li>
+                <li><a href="perfil.html">Perfil</a></li>
+                <li><a href="edit.html">Editar perfil</a></li>
             </ul>
         </nav>
-      </header>
-      <br>
-        <div class="perfil">
-            <img src="ruta_a_la_imagen.jpg" alt="Foto de Perfil">
-            <h1>Nombre Apellido</h1>
-            <p><strong>Cargo:</strong>ventas</p>
-            <div class="contacto">
-            <p><strong>Email:</strong> ejemplo@correo.com</p>
-            </div>
+    </header>
+
+    <main class="main-content">
+        <div class="perfil" id="perfil-container">
+            <!-- Aquí se actualizarán los datos del perfil con JavaScript -->
         </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Tu Empresa. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+      window.onload = function() {
+          const email = localStorage.getItem('userEmail');
+          
+          if (!email) {
+              alert('No has iniciado sesión. Redirigiendo al login...');
+              window.location.href = 'login.html'; // Redirigir al login si no hay correo en localStorage
+              return;
+          }
+  
+          // Hacer una solicitud a la API para obtener el perfil del usuario con el email
+          fetch(`http://localhost:3000/getProfile?email=${email}`)
+              .then(response => response.json())
+              .then(data => {
+                  if (data.error) {
+                      document.getElementById('perfil-container').innerHTML = `<p>${data.error}</p>`;
+                  } else {
+                      // Mostrar los datos del perfil
+                      const perfilHTML = `
+                          <h3>Bienvenido, ${data.nombre}</h3>
+                          <p><strong>Cargo:</strong> ${data.cargo}</p>
+                          <p><strong>Email:</strong> ${data.email}</p>
+                      `;
+                      document.getElementById('perfil-container').innerHTML = perfilHTML;
+                  }
+              })
+              .catch(error => {
+                  console.error('Error al obtener los datos del perfil:', error);
+              });
+      };
+  </script>
+  
 </body>
 </html>

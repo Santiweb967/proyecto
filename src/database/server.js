@@ -97,6 +97,36 @@ app.post('/login', (req, res) => {
         });
     });
 });
+// Ruta para obtener el perfil de un usuario
+// Ruta para obtener el perfil de un usuario
+app.get('/getProfile', (req, res) => {
+    const email = req.query.email; // Obtenemos el email como parámetro de consulta
+
+    if (!email) {
+        return res.status(400).json({ error: 'El email es requerido' });
+    }
+
+    // Consultar los datos del usuario
+    db.query('SELECT nombre, email, cargo FROM usuarios WHERE email = ?', [email], (err, results) => {
+        if (err) {
+            return res.status(500).json({ error: 'Error en la base de datos' });
+        }
+
+        if (results.length === 0) {
+            return res.status(404).json({ error: 'Usuario no encontrado' });
+        }
+
+        // Devolver los datos del usuario
+        const user = results[0];
+        return res.status(200).json({
+            nombre: user.nombre,
+            email: user.email,
+            cargo: user.cargo,
+        });
+    });
+});
+
+
 // Iniciar el servidor
 app.listen(port, () => {
     console.log(`Servidor corriendo en http://localhost:${port}`);

@@ -51,6 +51,9 @@
             .then(response => response.json())
             .then(data => {
                 if (data.message) {
+                    // Guardar el correo en localStorage para futuras consultas
+                    localStorage.setItem('userEmail', email);
+
                     alert(data.message);
                     window.location.href = 'index.html'; // Redirigir a la página principal después del login exitoso
                 } else {

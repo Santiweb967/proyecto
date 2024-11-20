@@ -43,3 +43,13 @@ button.delete {
     background-color: #ff4d4d;
     color: white;
 }
+.product-image {
+    width: 80px; /* Ajusta el tamaño de la imagen según tus necesidades */
+    height: 80px; /* Ajusta el tamaño de la imagen según tus necesidades */
+    margin-left: 5px; /* Espacio entre el texto y la imagen */
+}
+#product-table th, #product-table td {
+    text-align: center; /* Centrar texto en encabezados y celdas */
+    margin-bottom: 40px;
+}
+
