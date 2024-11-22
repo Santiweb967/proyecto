@@ -33,9 +33,7 @@
             <div class="form-group">
                 <label for="cargo">Cargo:</label>
                 <select id="cargo" name="cargo" required>
-                    <option value="">Seleccione un cargo</option>
-                    <option value="Administrador">Administrador</option>
-                    <option value="Vendedor">Vendedor</option>
+                    <option value="Vendedor">Vendedor</option> <!-- Solo opción de Vendedor -->
                 </select>
             </div>
 
@@ -60,7 +58,7 @@
                 email: formData.get('email'),
                 password: formData.get('password'),
                 confirm_password: formData.get('confirm_password'),
-                cargo: formData.get('cargo')
+                cargo: formData.get('cargo')  // Solo Vendedor
             };
 
             try {
