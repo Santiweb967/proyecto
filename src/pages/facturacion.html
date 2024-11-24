@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facturación Electrónica</title>
-    <link rel="stylesheet" href="../public/css/style.css">
-    <link rel="stylesheet" href="../public/css/facturacion.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <meta charset="UTF-8"> <!-- Define la codificación de caracteres como UTF-8 para soportar caracteres especiales -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que la página sea responsiva al adaptar su diseño a dispositivos móviles -->
+    <title>Facturación Electrónica</title> <!-- Título de la página, que aparece en la pestaña del navegador -->
+    <link rel="stylesheet" href="../public/css/style.css"> <!-- Vincula el archivo CSS principal -->
+    <link rel="stylesheet" href="../public/css/facturacion.css"> <!-- Vincula un archivo CSS adicional específico para esta página de facturación -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script> <!-- Carga la librería jsPDF para generar PDFs -->
+</head>
 
 <body>
     <header class="main-header">
-        <label for="btn-nav" class="btn-nav"><i class="fas fa-bars"></i><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
-            <path d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z"></path>
-            </svg></label>
-        <input type="checkbox" id="btn-nav">
+        <!-- Encabezado con un botón de menú para dispositivos móviles -->
+        <label for="btn-nav" class="btn-nav"><i class="fas fa-bars"></i>
+            <!-- Icono de hamburguesa para mostrar el menú de navegación -->
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
+                <path d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z"></path>
+            </svg>
+        </label>
+        <input type="checkbox" id="btn-nav"> <!-- Checkbox que activa o desactiva el menú de navegación en dispositivos móviles -->
         <nav>
             <ul class="navigation">
+                <!-- Menú de navegación con enlaces a diferentes secciones -->
                 <li><a href="index.html">Home</a></li>
                 <li><a href="stok.html">Stock</a></li>
                 <li><a href="facturacion.html">Facturación</a></li>
@@ -26,68 +32,71 @@
     </header>
 
     <main>
+        <!-- Sección principal para la creación de una nueva factura -->
         <section class="factura">
-            <h2>Generar Factura</h2>
-            <form id="facturaForm">
+            <h2>Generar Factura</h2> <!-- Título de la sección -->
+            <form id="facturaForm"> <!-- Formulario para la generación de la factura -->
                 <label for="nombre">Nombre del Cliente:</label>
-                <input type="text" id="nombre" name="nombre" required>
+                <input type="text" id="nombre" name="nombre" required> <!-- Campo para el nombre del cliente -->
 
                 <h3>Productos</h3>
                 <div id="productos-container">
                     <div class="producto-item">
+                        <!-- Item de producto para agregar productos a la factura -->
                         <label for="producto">Producto:</label>
-                        <input type="text" class="producto" name="producto[]" required>
-
+                        <input type="text" class="producto" name="producto[]" required> <!-- Campo para el nombre del producto -->
+                        
                         <label for="cantidad">Cantidad:</label>
-                        <input type="number" class="cantidad" name="cantidad[]" required>
-
+                        <input type="number" class="cantidad" name="cantidad[]" required> <!-- Campo para la cantidad del producto -->
+                        
                         <label for="precio">Precio por Unidad:</label>
-                        <input type="number" class="precio" name="precio[]" required>
-
-                        <button type="button" class="remove-producto">Eliminar Producto</button>
+                        <input type="number" class="precio" name="precio[]" required> <!-- Campo para el precio por unidad del producto -->
+                        
+                        <button type="button" class="remove-producto">Eliminar Producto</button> <!-- Botón para eliminar un producto del formulario -->
                     </div>
                 </div>
-                <button type="button" id="add-producto">Agregar Producto</button>
+                <button type="button" id="add-producto">Agregar Producto</button> <!-- Botón para agregar un nuevo producto al formulario -->
 
-                <button type="submit">Generar Factura</button>
+                <button type="submit">Generar Factura</button> <!-- Botón para generar la factura -->
             </form>
         </section>
 
-        <!-- Sección de facturas generadas -->
+        <!-- Sección para mostrar las facturas generadas previamente -->
         <section class="mis-facturas">
             <div>
                 <h2>Lista de Facturas</h2>
                 <ul id="facturas-list">
-                    <!-- Las facturas se agregarán dinámicamente aquí -->
+                    <!-- Las facturas generadas se agregarán dinámicamente aquí -->
                 </ul>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Facturación Electrónica</p>
+        <p>&copy; 2024 Facturación Electrónica</p> <!-- Pie de página con derechos de autor -->
     </footer>
 
-    <!-- Enlazar el archivo JS -->
-    <script type="module" src="../public/js/factura.js"></script>
+    <!-- Enlazar el archivo JavaScript con la lógica de la aplicación -->
+    <script type="module" src="../public/js/factura.js"></script> <!-- Enlace al archivo JavaScript específico para la facturación -->
 
+    <!-- Script para cargar y mostrar las facturas desde un backend (servidor) -->
     <script>
-        // Código para cargar las facturas desde el backend
+        // Cargar las facturas generadas previamente desde un servidor utilizando fetch
         fetch('http://localhost:3000/getFacturas')
-            .then(response => response.json())  // Convertir la respuesta a JSON
+            .then(response => response.json())  // Convertir la respuesta del servidor a formato JSON
             .then(facturas => {
                 const facturasList = document.getElementById('facturas-list');
-                facturasList.innerHTML = ''; // Limpiar el listado antes de agregar las nuevas facturas
+                facturasList.innerHTML = ''; // Limpiar el listado antes de agregar nuevas facturas
 
-                // Si hay facturas, agregarlas al listado
+                // Si hay facturas, agregarlas a la lista
                 facturas.forEach(factura => {
                     const li = document.createElement('li');
                     li.textContent = `Factura ID: ${factura.id}, Cliente: ${factura.nombre_cliente}, Total: $${factura.total}`;
-                    facturasList.appendChild(li);
+                    facturasList.appendChild(li); // Añadir la factura a la lista HTML
                 });
             })
             .catch(error => {
-                console.error('Error al obtener las facturas:', error);
+                console.error('Error al obtener las facturas:', error); // Mostrar error en consola si ocurre algún problema
             });
     </script>
 </body>

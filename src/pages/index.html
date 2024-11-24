@@ -1,70 +1,82 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Droguería Salud y Bienestar</title>
-    <link rel="stylesheet" href="../public/css/style.css">
-    <link rel="stylesheet" href="../public/css/index.css"
+    <meta charset="UTF-8"> <!-- Define la codificación de caracteres del documento, en este caso UTF-8 que soporta caracteres especiales como acentos y eñes -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que la página sea responsiva al adaptar su diseño a la pantalla del dispositivo -->
+    <title>Droguería Salud y Bienestar</title> <!-- El título de la página, que aparece en la pestaña del navegador -->
+    <link rel="stylesheet" href="../public/css/style.css"> <!-- Vincula el archivo CSS principal de la página -->
+    <link rel="stylesheet" href="../public/css/index.css"> <!-- Vincula un archivo CSS adicional específico para esta página (index.html) -->
 </head>
 <body id="cuerpo">
     <header class="main-header">
-        <label for="btn-nav" class="btn-nav"><i class="fas fa-bars"></i><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
-            <path d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z"></path>
-            </svg></label>
-        <input type="checkbox" id="btn-nav">
+        <!-- El encabezado contiene un botón de navegación para dispositivos móviles -->
+        <label for="btn-nav" class="btn-nav"><i class="fas fa-bars"></i> <!-- Icono de hamburguesa para el menú móvil -->
+            <!-- SVG como un ícono alternativo (representa tres barras horizontales) -->
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
+                <path d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z"></path>
+            </svg>
+        </label>
+        <input type="checkbox" id="btn-nav"> <!-- Checkbox que activa el menú de navegación al ser marcado -->
         <nav>
-			<ul class="navigation">
-				<li><a href="index.html">Home</a></li>
-				<li><a href="stok.html">stok</a></li>
-                <li><a href="facturacion.html">Facturacion</a></li>
-				<li><a href="perfil.html">perfil</a></li>
-				<li><a href="edit.html">Editar perfil</a></li>
-			  </ul>
+            <ul class="navigation">
+                <!-- Menú de navegación con enlaces a distintas páginas -->
+                <li><a href="index.html">Home</a></li>
+                <li><a href="stok.html">Stock</a></li>
+                <li><a href="facturacion.html">Facturación</a></li>
+                <li><a href="perfil.html">Perfil</a></li>
+                <li><a href="edit.html">Editar Perfil</a></li>
+            </ul>
         </nav>
-      </header>
-      <body>
-        <section id="intro">
-            <h2>Bienvenido KioscoSalud</h2>
-            <p>Bienvenido a KioscoSalud, tu solución integral para la gestión de operaciones y 
-                facturación en el sector farmacéutico.</p>
-        </section>
-    
-        <div class="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item">
-                    <img src="../public/Img/1.jpg" alt="Medicamento 1">
-                </div>
-                <div class="carousel-item">
-                    <img src="../public/Img/2.jpg" alt="Medicamento 2">
-                </div>
-                <div class="carousel-item">
-                    <img src="../public/Img/3.jpg" alt="Medicamento 3">
-                </div>
+    </header>
+
+    <!-- Sección de bienvenida -->
+    <section id="intro">
+        <h2>Bienvenido KioscoSalud</h2> <!-- Título de bienvenida -->
+        <p>Bienvenido a KioscoSalud, tu solución integral para la gestión de operaciones y 
+            facturación en el sector farmacéutico.</p> <!-- Descripción breve de los servicios ofrecidos -->
+    </section>
+
+    <!-- Carrusel de imágenes (Slider) -->
+    <div class="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item">
+                <img src="../public/Img/1.jpg" alt="Medicamento 1"> <!-- Imagen del primer medicamento -->
+            </div>
+            <div class="carousel-item">
+                <img src="../public/Img/2.jpg" alt="Medicamento 2"> <!-- Imagen del segundo medicamento -->
+            </div>
+            <div class="carousel-item">
+                <img src="../public/Img/3.jpg" alt="Medicamento 3"> <!-- Imagen del tercer medicamento -->
             </div>
         </div>
-    
-        <script>
-            const carouselInner = document.querySelector('.carousel-inner');
-            const items = document.querySelectorAll('.carousel-item');
-            let currentIndex = 0;
-    
-            function updateCarousel() {
-                const offset = -currentIndex * 100;
-                carouselInner.style.transform = `translateX(${offset}%)`;
-            }
-    
-            // Función para el desplazamiento automático
-            function autoSlide() {
-                currentIndex = (currentIndex + 1) % items.length;
-                updateCarousel();
-            }
-    
-            // Establecer un intervalo de 3 segundos para el desplazamiento automático
-            setInterval(autoSlide, 3000);
-        </script>
+    </div>
+
+    <!-- Script para el funcionamiento del carrusel -->
+    <script>
+        const carouselInner = document.querySelector('.carousel-inner'); // Selecciona el contenedor del carrusel
+        const items = document.querySelectorAll('.carousel-item'); // Selecciona todos los elementos del carrusel (las imágenes)
+        let currentIndex = 0; // Índice actual de la imagen visible
+
+        // Función que actualiza la posición del carrusel
+        function updateCarousel() {
+            const offset = -currentIndex * 100; // Calcula el desplazamiento en porcentaje (100% de ancho por cada ítem)
+            carouselInner.style.transform = `translateX(${offset}%)`; // Aplica la transformación al carrusel para moverlo
+        }
+
+        // Función para hacer el desplazamiento automático entre las imágenes
+        function autoSlide() {
+            currentIndex = (currentIndex + 1) % items.length; // Incrementa el índice de la imagen visible y lo reinicia cuando llega al final
+            updateCarousel(); // Actualiza la posición del carrusel
+        }
+
+        // Establece un intervalo de 3 segundos para que se desplace automáticamente
+        setInterval(autoSlide, 3000);
+    </script>
+
+    <!-- Pie de página con derechos de autor -->
     <footer>
         <p>&copy; 2024 Droguería Salud y Bienestar - Tu salud, nuestra prioridad.</p>
     </footer>
+
 </body>
 </html>

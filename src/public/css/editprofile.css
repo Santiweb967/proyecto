@@ -1,103 +1,118 @@
+/* Estilos para el contenedor principal */
 .container {
-    max-width: 900px;
-    margin: 30px auto;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    max-width: 900px; /* Limita el ancho máximo del contenedor a 900px */
+    margin: 30px auto; /* Centra el contenedor horizontalmente con un margen de 30px arriba y abajo */
+    padding: 20px; /* Añade espacio interno de 20px alrededor del contenido */
+    background-color: #ffffff; /* Define el fondo blanco para el contenedor */
+    border-radius: 10px; /* Bordes redondeados de 10px */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Añade una sombra sutil alrededor del contenedor */
 }
 
+/* Estilos para el contenedor del formulario */
 .form-box {
-    width: 100%;
+    width: 100%; /* El contenedor de la caja de formulario ocupa el 100% del contenedor padre */
 }
 
+/* Estilo del título dentro del formulario */
 .form-box h1 {
-    text-align: center;
-    font-size: 28px;
-    color: #333;
-    margin-bottom: 30px;
+    text-align: center; /* Centra el texto del título */
+    font-size: 28px; /* Tamaño de fuente de 28px */
+    color: #333; /* Color del texto en un gris oscuro */
+    margin-bottom: 30px; /* Espacio de 30px debajo del título */
 }
 
+/* Estilos para los grupos de formulario (cada campo de entrada) */
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 20px; /* Espacio de 20px debajo de cada grupo de formulario */
 }
 
+/* Estilo de las etiquetas dentro del formulario */
 .form-group label {
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
-    display: block;
-    margin-bottom: 8px;
+    font-size: 16px; /* Tamaño de la fuente para las etiquetas */
+    font-weight: bold; /* Hace que las etiquetas sean negritas */
+    color: #333; /* Color del texto de las etiquetas en gris oscuro */
+    display: block; /* Hace que las etiquetas se comporten como bloque (ocupan toda la línea) */
+    margin-bottom: 8px; /* Espacio de 8px debajo de la etiqueta */
 }
 
+/* Estilos para los campos de entrada dentro del formulario */
 .form-group input {
-    width: 100%;
-    padding: 12px;
-    font-size: 16px;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%; /* Los campos de entrada ocupan el 100% del ancho disponible */
+    padding: 12px; /* Añade espacio interno de 12px dentro de los campos de entrada */
+    font-size: 16px; /* Tamaño de fuente de 16px */
+    border: 2px solid #ccc; /* Borde gris claro de 2px de grosor */
+    border-radius: 8px; /* Bordes redondeados de 8px */
+    background-color: #f9f9f9; /* Fondo de color gris claro para los campos de entrada */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves para cambios de borde y sombra */
 }
 
+/* Estilo cuando el campo de entrada está enfocado (cuando el usuario hace clic en él) */
 .form-group input:focus {
-    border-color: #4CAF50;
-    outline: none;
-    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+    border-color: #4CAF50; /* Cambia el color del borde a verde cuando está enfocado */
+    outline: none; /* Elimina el contorno predeterminado al hacer foco en el campo */
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5); /* Añade una sombra suave alrededor del campo enfocado */
 }
 
+/* Estilos para el botón de envío del formulario */
 button[type="submit"] {
-    width: 100%;
-    background-color: #4c82af;
-    color: white;
-    padding: 12px 20px;
-    font-size: 18px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 100%; /* El botón ocupa el 100% del ancho disponible */
+    background-color: #4c82af; /* Color de fondo azul para el botón */
+    color: white; /* Color del texto blanco */
+    padding: 12px 20px; /* Espacio interno de 12px arriba y abajo, 20px a los lados */
+    font-size: 18px; /* Tamaño de fuente de 18px */
+    border: none; /* Elimina el borde predeterminado del botón */
+    border-radius: 8px; /* Bordes redondeados de 8px para el botón */
+    cursor: pointer; /* Cambia el cursor a una mano al pasar sobre el botón */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transiciones suaves para el fondo y el desplazamiento */
 }
 
+/* Estilos cuando el usuario pasa el ratón sobre el botón (hover) */
 button[type="submit"]:hover {
-    background-color: #45a049;
-    transform: translateY(-3px);
+    background-color: #45a049; /* Cambia el color de fondo a verde cuando el ratón pasa sobre el botón */
+    transform: translateY(-3px); /* Mueve el botón ligeramente hacia arriba cuando se pasa el ratón sobre él */
 }
 
+/* Estilos cuando el usuario hace clic en el botón (active) */
 button[type="submit"]:active {
-    background-color: #388e3c;
-    transform: translateY(1px);
+    background-color: #388e3c; /* Cambia el color de fondo a un verde más oscuro cuando se hace clic */
+    transform: translateY(1px); /* Mueve el botón ligeramente hacia abajo cuando se hace clic */
 }
 
-/* Estilos para el Footer */
+/* Estilos para el pie de página */
 footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #4c82af;
-    color: white;
-    margin-top: 50px;
+    text-align: center; /* Centra el texto dentro del pie de página */
+    padding: 10px; /* Añade un espacio interno de 10px */
+    background-color: #4c82af; /* Color de fondo azul para el pie de página */
+    color: white; /* Color del texto en blanco */
+    margin-top: 50px; /* Espacio de 50px arriba del pie de página */
 }
 
-/* Estilos para Responsividad */
+/* Estilos de responsividad (para pantallas pequeñas, como teléfonos) */
 @media (max-width: 768px) {
+    /* Ajusta la cabecera para pantallas pequeñas */
     .main-header {
-        flex-direction: column;
-        text-align: center;
+        flex-direction: column; /* Muestra los elementos en columna en lugar de fila */
+        text-align: center; /* Centra el texto en la cabecera */
     }
 
+    /* Ajusta la navegación para pantallas pequeñas */
     .navigation {
-        flex-direction: column;
-        margin-top: 20px;
+        flex-direction: column; /* Cambia la dirección de los elementos de navegación a columna */
+        margin-top: 20px; /* Añade espacio en la parte superior */
     }
 
+    /* Ajusta el diseño de los elementos de navegación */
     .navigation li {
-        margin: 10px 0;
+        margin: 10px 0; /* Añade margen de 10px arriba y abajo en cada elemento de la lista */
     }
 
+    /* Ajusta el contenedor para pantallas pequeñas */
     .container {
-        padding: 15px;
+        padding: 15px; /* Reduce el espacio interno del contenedor */
     }
 
+    /* Ajusta el formulario para pantallas pequeñas */
     .form-box {
-        width: 100%;
+        width: 100%; /* Hace que el formulario ocupe todo el ancho disponible */
     }
 }

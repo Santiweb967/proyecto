@@ -1,200 +1,201 @@
 /* Estilo para el header */
 header {
-    background: #333;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background: #333; /* Fondo gris oscuro */
+    color: #fff; /* Texto blanco */
+    padding: 20px 0; /* Espaciado superior e inferior */
+    text-align: center; /* Centra el texto */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave debajo del header */
 }
 
 /* Estilo para los formularios */
 form {
-    margin: 30px auto;
-    width: 80%;
-    max-width: 600px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 30px auto; /* Margen vertical y centrado horizontal */
+    width: 80%; /* Ancho del formulario al 80% */
+    max-width: 600px; /* Ancho máximo de 600px */
+    padding: 20px; /* Espacio interno */
+    background-color: #f9f9f9; /* Fondo gris claro */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
 /* Estilo para los inputs */
 input {
-    width: calc(100% - 20px);
-    padding: 12px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 16px;
+    width: calc(100% - 20px); /* Ancho 100% menos el espacio para el padding */
+    padding: 12px; /* Espaciado interno */
+    margin: 10px 0; /* Margen superior e inferior */
+    border: 1px solid #ddd; /* Borde gris claro */
+    border-radius: 4px; /* Bordes ligeramente redondeados */
+    font-size: 16px; /* Tamaño de la fuente */
 }
 
+/* Efecto al enfocar un input */
 input:focus {
-    outline: none;
-    border-color: #4caf50;
+    outline: none; /* Elimina el borde de enfoque predeterminado */
+    border-color: #4caf50; /* Cambia el borde a verde al enfocar */
 }
 
 /* Estilo para el botón */
 button {
-    padding: 10px 15px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 4px;
-    background-color: #28a745;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    padding: 10px 15px; /* Espaciado interno */
+    margin: 10px 0; /* Margen superior e inferior */
+    border: none; /* Elimina los bordes predeterminados */
+    border-radius: 4px; /* Bordes redondeados */
+    background-color: #28a745; /* Fondo verde */
+    color: white; /* Texto blanco */
+    font-size: 16px; /* Tamaño de la fuente */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease; /* Transición suave para el cambio de color de fondo */
 }
 
+/* Efecto al pasar el ratón sobre el botón */
 button:hover {
-    background-color: #218838;
+    background-color: #218838; /* Cambia el color de fondo a verde más oscuro */
 }
 
 /* Estilo para la tabla */
 table {
-    width: 90%;
-    margin: 20px auto;
-    border-collapse: collapse;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 90%; /* Ancho de la tabla al 90% */
+    margin: 20px auto; /* Margen superior e inferior, centrado horizontal */
+    border-collapse: collapse; /* Elimina el espacio entre bordes de celdas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave alrededor de la tabla */
 }
 
 /* Estilo para las celdas y encabezados de la tabla */
 th, td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: center;
-    font-size: 16px;
+    border: 1px solid #ddd; /* Borde gris claro */
+    padding: 12px; /* Espaciado interno */
+    text-align: center; /* Centra el contenido de las celdas */
+    font-size: 16px; /* Tamaño de la fuente */
 }
 
-/* Estilo para el encabezado */
+/* Estilo para el encabezado de la tabla */
 th {
-    background-color: #f2f2f2;
-    color: #333;
-    font-weight: bold;
+    background-color: #f2f2f2; /* Fondo gris claro para las celdas del encabezado */
+    color: #333; /* Color de texto gris oscuro */
+    font-weight: bold; /* Negrita en los encabezados */
 }
 
 /* Estilo para el fondo de las filas */
 tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: #f9f9f9; /* Fondo gris claro para filas pares */
 }
 
 /* Estilo para los botones de acción (editar, agotar) */
 button.edit {
-    background-color: #ffa500;
-    color: white;
-    font-size: 14px;
+    background-color: #ffa500; /* Fondo naranja para el botón de editar */
+    color: white; /* Texto blanco */
+    font-size: 14px; /* Tamaño de la fuente */
 }
 
+/* Efecto al pasar el ratón sobre el botón de editar */
 button.edit:hover {
-    background-color: #e69500;
+    background-color: #e69500; /* Fondo naranja más oscuro al hacer hover */
 }
 
 button.outofstock {
-    background-color: #ff4d4d;
-    color: white;
-    font-size: 14px;
+    background-color: #ff4d4d; /* Fondo rojo para el botón de agotar */
+    color: white; /* Texto blanco */
+    font-size: 14px; /* Tamaño de la fuente */
 }
 
+/* Efecto al pasar el ratón sobre el botón de agotado */
 button.outofstock:hover {
-    background-color: #e04a4a;
+    background-color: #e04a4a; /* Fondo rojo más oscuro al hacer hover */
 }
 
 /* Estilo para las imágenes de los productos (si se incluyen) */
 .product-image {
-    width: 80px;
-    height: 80px;
-    border-radius: 5px;
-    object-fit: cover;
-    margin-left: 5px;
+    width: 80px; /* Ancho de la imagen */
+    height: 80px; /* Altura de la imagen */
+    border-radius: 5px; /* Bordes redondeados */
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsión */
+    margin-left: 5px; /* Espacio a la izquierda de la imagen */
 }
 
 /* Estilo para la tabla de productos */
 #product-table th, #product-table td {
-    text-align: center;
-    padding: 12px;
+    text-align: center; /* Centra el texto en las celdas */
+    padding: 12px; /* Espaciado interno de las celdas */
 }
 
 /* Estilo para el pie de página */
 footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    font-size: 14px;
+    background-color: #333; /* Fondo gris oscuro */
+    color: #fff; /* Texto blanco */
+    text-align: center; /* Centra el texto */
+    padding: 10px; /* Espaciado interno */
+    position: fixed; /* Fija el pie de página en la parte inferior */
+    bottom: 0; /* Alineación al fondo de la página */
+    width: 100%; /* Ancho completo */
+    font-size: 14px; /* Tamaño de la fuente */
 }
-
-/* Agregar márgenes a los elementos de la navegación en el menú */
-
 
 /* Responsivo para dispositivos más pequeños */
 @media screen and (max-width: 768px) {
     /* Hacer que el header sea más compacto en dispositivos pequeños */
     header {
-        padding: 15px 0;
+        padding: 15px 0; /* Menos padding en el header */
     }
 
     /* El formulario se ajusta al 100% de ancho */
     form {
-        width: 90%;
-        padding: 15px;
+        width: 90%; /* Ajusta el formulario al 90% */
+        padding: 15px; /* Reduce el padding */
     }
 
     /* Inputs se ajustan al 100% del ancho */
     input {
-        width: 100%;
+        width: 100%; /* Hace que los inputs ocupen todo el ancho */
     }
 
     /* El botón se ajusta al 100% */
     button {
-        width: 100%;
+        width: 100%; /* Hace que el botón ocupe todo el ancho */
     }
 
-    /* Tabla: ajustar el ancho de las celdas */
+    /* Ajuste de la tabla para dispositivos más pequeños */
     table {
-        width: 100%;
-        font-size: 14px;
+        width: 100%; /* Hace que la tabla ocupe todo el ancho */
+        font-size: 14px; /* Reduce el tamaño de la fuente */
     }
 
-    /* Ajustar los botones dentro de la tabla */
+    /* Ajuste de botones dentro de la tabla */
     button.edit, button.outofstock {
-        width: 100%;
-        margin: 5px 0;
-        font-size: 14px;
+        width: 100%; /* Hace que los botones ocupen todo el ancho */
+        margin: 5px 0; /* Añade margen entre los botones */
+        font-size: 14px; /* Ajuste del tamaño de la fuente */
     }
 
     /* Navegación en dispositivos pequeños (menú de hamburguesa) */
     .navigation {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: column; /* Hace que la navegación se apile verticalmente */
+        align-items: center; /* Centra los elementos de la navegación */
     }
 
     .navigation li {
-        margin: 10px 0;
+        margin: 10px 0; /* Añade margen entre los elementos */
     }
 
     .btn-nav {
-        display: block;
-        position: absolute;
+        display: block; /* Muestra el botón de navegación como un bloque */
+        position: absolute; /* Posiciona el botón de navegación en la esquina superior derecha */
         top: 20px;
         right: 20px;
-        cursor: pointer;
+        cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
     }
 
     #btn-nav:checked ~ nav {
-        display: block;
+        display: block; /* Muestra el menú de navegación al hacer clic */
     }
 
     nav {
-        display: none;
-        background-color: #333;
-        position: absolute;
+        display: none; /* Oculta el menú de navegación por defecto */
+        background-color: #333; /* Fondo gris oscuro */
+        position: absolute; /* Posiciona el menú en la parte superior */
         top: 60px;
         right: 0;
-        width: 100%;
-        padding: 10px 0;
+        width: 100%; /* Ancho completo */
+        padding: 10px 0; /* Espaciado interno */
     }
 }
 
@@ -202,36 +203,38 @@ footer {
 @media screen and (max-width: 480px) {
     /* Ajustar la fuente de la tabla */
     table, th, td {
-        font-size: 12px;
+        font-size: 12px; /* Tamaño de fuente más pequeño */
     }
 
     /* El formulario se ajusta al 90% de ancho */
     form {
-        width: 90%;
-        padding: 10px;
+        width: 90%; /* Ajusta el formulario al 90% */
+        padding: 10px; /* Reduce el padding */
     }
 
     /* Ajuste adicional para los botones */
     button {
-        font-size: 14px;
+        font-size: 14px; /* Ajuste de tamaño de fuente para botones */
     }
 
     /* Ajuste de imágenes */
     .product-image {
-        width: 60px;
-        height: 60px;
+        width: 60px; /* Reduce el tamaño de la imagen */
+        height: 60px; /* Reduce el tamaño de la imagen */
     }
 }
+
 /* Estilo para productos agotados */
 .producto-agotado {
-    opacity: 0.5; /* Hacerlo opaco */
-    text-decoration: line-through; /* Línea atravesada */
+    opacity: 0.5; /* Baja la opacidad */
+    text-decoration: line-through; /* Añade una línea a través del texto */
 }
 
 /* Estilo para productos reactivados */
 .producto-reactivado {
     background-color: #d4edda; /* Fondo verde claro para los productos reactivados */
 }
+
 
 /* Estilo para la tabla */
 table {

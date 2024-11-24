@@ -1,233 +1,248 @@
 /* Estilos del perfil */
 .perfil {
-    background: rgb(255, 255, 255);
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    max-width: 420px;
-    margin: 30px auto;
-    text-align: center;
-    font-family: 'Arial', sans-serif;
-    transition: box-shadow 0.3s ease;
+    background: rgb(255, 255, 255); /* Fondo blanco para el contenedor del perfil */
+    padding: 30px; /* Espacio interno alrededor del contenido */
+    border-radius: 12px; /* Bordes redondeados de 12px */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidad */
+    max-width: 420px; /* Establece un ancho máximo para el perfil */
+    margin: 30px auto; /* Centra el perfil horizontalmente con margen arriba y abajo */
+    text-align: center; /* Centra el contenido de texto dentro del perfil */
+    font-family: 'Arial', sans-serif; /* Define la tipografía de todo el perfil */
+    transition: box-shadow 0.3s ease; /* Añade transición suave al cambio de sombra */
 }
 
+/* Efecto al pasar el ratón sobre el contenedor del perfil */
 .perfil:hover {
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Aumenta la sombra para dar un efecto de profundidad al hacer hover */
 }
 
+/* Estilo para el título dentro del perfil */
 .perfil h1 {
-    font-size: 26px;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 15px;
-    letter-spacing: 1px;
-    text-transform: capitalize;
+    font-size: 26px; /* Tamaño de la fuente del título */
+    font-weight: 600; /* Peso de la fuente en negrita */
+    color: #333; /* Color gris oscuro para el texto */
+    margin-bottom: 15px; /* Espacio debajo del título */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    text-transform: capitalize; /* Capitaliza la primera letra de cada palabra */
 }
 
+/* Estilo para la imagen de perfil */
 .perfil img {
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    margin-bottom: 20px;
-    object-fit: cover;
-    border: 4px solid #007BFF;
-    transition: transform 0.3s ease;
+    border-radius: 50%; /* Hace que la imagen sea circular */
+    width: 120px; /* Define el ancho de la imagen */
+    height: 120px; /* Define la altura de la imagen */
+    margin-bottom: 20px; /* Espacio debajo de la imagen */
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+    border: 4px solid #007BFF; /* Bordes de la imagen con color azul */
+    transition: transform 0.3s ease; /* Transición suave para el efecto de escala */
 }
 
+/* Efecto al pasar el ratón sobre la imagen */
 .perfil img:hover {
-    transform: scale(1.1);
+    transform: scale(1.1); /* Aumenta el tamaño de la imagen al pasar el ratón sobre ella */
 }
 
+/* Estilo para los párrafos dentro del perfil */
 .perfil p {
-    font-size: 16px;
-    color: #666;
-    line-height: 1.6;
-    margin-bottom: 15px;
-    font-weight: 400;
+    font-size: 16px; /* Tamaño de la fuente */
+    color: #666; /* Color gris claro */
+    line-height: 1.6; /* Interlineado para mejorar la legibilidad */
+    margin-bottom: 15px; /* Espacio debajo de los párrafos */
+    font-weight: 400; /* Peso normal de la fuente */
 }
 
 /* Estilo para el contenedor del botón de cerrar sesión */
 .logout-container {
-    text-align: center;  /* Centrado del botón */
-    margin-top: 30px;  /* Espacio superior para separar de la información */
+    text-align: center; /* Centra el botón de cerrar sesión */
+    margin-top: 30px; /* Espacio superior para separar el botón del resto del contenido */
 }
 
-/* Botón de Cerrar Sesión */
+/* Estilo para el botón de cerrar sesión */
 .logout-btn {
-    background-color: #ff4d4d;
-    color: white;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    display: inline-block;
+    background-color: #ff4d4d; /* Fondo rojo para el botón */
+    color: white; /* Color blanco para el texto */
+    padding: 12px 25px; /* Espacio interno en el botón */
+    border: none; /* Elimina los bordes predeterminados del botón */
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor a mano cuando se pasa sobre el botón */
+    font-size: 16px; /* Tamaño de la fuente en el botón */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave para el color de fondo y la escala */
+    display: inline-block; /* Hace que el botón se comporte como un bloque en línea */
 }
 
+/* Efecto al pasar el ratón sobre el botón de cerrar sesión */
 .logout-btn:hover {
-    background-color: #e63946;
-    transform: scale(1.05);
+    background-color: #e63946; /* Cambia el color de fondo a un tono más oscuro de rojo */
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño del botón */
 }
 
-
+/* Estilos para los botones de editar y ver perfil */
 .btn-editar, .btn-ver {
-    background-color: #45a049;
-    color: white;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 10px;
-    display: inline-block;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    background-color: #45a049; /* Fondo verde para los botones */
+    color: white; /* Texto blanco */
+    padding: 12px 25px; /* Espacio interno de los botones */
+    border: none; /* Elimina los bordes predeterminados */
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor a mano */
+    font-size: 16px; /* Tamaño de la fuente */
+    margin-top: 10px; /* Espacio superior entre los botones */
+    display: inline-block; /* Los botones se comportan como elementos en línea */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave para el color de fondo y la escala */
 }
 
+/* Efecto al pasar el ratón sobre los botones de editar y ver perfil */
 .btn-editar:hover, .btn-ver:hover {
-    background-color: #387d3b;
-    transform: scale(1.05);
+    background-color: #387d3b; /* Cambia el color de fondo a un tono más oscuro de verde */
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño del botón */
 }
 
 /* Estilo para el botón de guardar */
 .btn-guardar {
-    background-color: #008CBA;
-    color: white;
-    padding: 12px 25px;
-    border: none;
-    cursor: pointer;
-    border-radius: 8px;
-    font-size: 16px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    margin-top: 20px;
+    background-color: #008CBA; /* Fondo azul para el botón de guardar */
+    color: white; /* Texto blanco */
+    padding: 12px 25px; /* Espacio interno del botón */
+    border: none; /* Elimina los bordes predeterminados */
+    cursor: pointer; /* Cambia el cursor a mano */
+    border-radius: 8px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de la fuente */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave para el color de fondo y la escala */
+    margin-top: 20px; /* Espacio superior entre el botón y el contenido anterior */
 }
 
+/* Efecto al pasar el ratón sobre el botón de guardar */
 .btn-guardar:hover {
-    background-color: #007b8f;
-    transform: scale(1.05);
+    background-color: #007b8f; /* Cambia el color de fondo a un tono más oscuro de azul */
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño del botón */
 }
 
-/* Diseño y disposición de la sección contacto */
+/* Estilo para la sección de contacto dentro del perfil */
 .perfil .contacto {
-    margin-top: 20px;
-    padding-top: 10px;
-    border-top: 2px solid #f0f0f0;
+    margin-top: 20px; /* Espacio superior */
+    padding-top: 10px; /* Espacio interno superior */
+    border-top: 2px solid #f0f0f0; /* Línea superior que separa la sección de contacto */
 }
 
+/* Estilo para los párrafos dentro de la sección de contacto */
 .perfil .contacto p {
-    font-size: 14px;
-    color: #777;
+    font-size: 14px; /* Tamaño de la fuente */
+    color: #777; /* Color gris oscuro */
 }
 
-/* Fondo del contenedor de perfil */
+/* Estilo para el contenedor general del perfil */
 .perfil-container {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9; /* Fondo gris claro para el contenedor */
+    padding: 20px; /* Espacio interno alrededor del contenedor */
+    border-radius: 12px; /* Bordes redondeados */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave alrededor del contenedor */
 }
 
+/* Estilo para el título dentro del contenedor de perfil */
 .perfil-container h2 {
-    font-size: 22px;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 15px;
+    font-size: 22px; /* Tamaño de la fuente */
+    font-weight: 600; /* Peso de la fuente */
+    color: #333; /* Color gris oscuro para el texto */
+    margin-bottom: 15px; /* Espacio debajo del título */
 }
 
-/* Estilos para enlaces y otras interacciones */
+/* Estilos para los enlaces dentro del perfil */
 a {
-    text-decoration: none;
-    color: #007BFF;
-    transition: color 0.3s ease;
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    color: #007BFF; /* Color azul para los enlaces */
+    transition: color 0.3s ease; /* Transición suave para el cambio de color */
 }
 
+/* Efecto al pasar el ratón sobre los enlaces */
 a:hover {
-    color: #0056b3;
+    color: #0056b3; /* Cambia el color a un tono más oscuro de azul */
 }
 
-/* Efecto para botones en un contenedor (para editar, ver perfil) */
+/* Estilos para el contenedor de botones (editar, ver perfil) */
 .btn-container {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
+    display: flex; /* Utiliza Flexbox para organizar los botones */
+    justify-content: center; /* Centra los botones */
+    gap: 15px; /* Espacio entre los botones */
 }
 
-        /* Estilos para la lista de perfiles */
-        .perfil-list {
-            margin-top: 20px;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+/* Estilos para la lista de perfiles */
+.perfil-list {
+    margin-top: 20px; /* Espacio superior */
+    padding: 20px; /* Espacio interno alrededor de la lista */
+    background-color: #f9f9f9; /* Fondo gris claro */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave alrededor de la lista */
+}
 
-        .perfil-list h2 {
-            text-align: center;
-            font-size: 24px;
-            color: #333;
-        }
+/* Estilo para el título dentro de la lista de perfiles */
+.perfil-list h2 {
+    text-align: center; /* Centra el título */
+    font-size: 24px; /* Tamaño de la fuente */
+    color: #333; /* Color gris oscuro */
+}
 
-        .perfil-list ul {
-            list-style-type: none;
-            padding: 0;
-        }
+/* Estilo para los elementos de la lista de perfiles */
+.perfil-list ul {
+    list-style-type: none; /* Elimina los puntos de lista */
+    padding: 0; /* Elimina el relleno */
+}
 
-        .perfil-list li {
-            background-color: #fff;
-            margin: 10px 0;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
+.perfil-list li {
+    background-color: #fff; /* Fondo blanco para cada elemento */
+    margin: 10px 0; /* Espacio entre los elementos */
+    padding: 15px; /* Espacio interno de cada elemento */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
 
-        .perfil-list li h3 {
-            font-size: 20px;
-            margin: 0;
-            color: #333;
-        }
+/* Estilo para los títulos dentro de los elementos de la lista */
+.perfil-list li h3 {
+    font-size: 20px; /* Tamaño de la fuente */
+    margin: 0; /* Elimina el margen superior e inferior */
+    color: #333; /* Color gris oscuro */
+}
 
-        .perfil-list li p {
-            font-size: 16px;
-            margin: 5px 0;
-        }
+/* Estilo para los párrafos dentro de los elementos de la lista */
+.perfil-list li p {
+    font-size: 16px; /* Tamaño de la fuente */
+    margin: 5px 0; /* Espacio superior e inferior */
+}
 
-        .perfil-list .editable-cargo {
-            border: 1px solid #ccc;
-            padding: 5px;
-            font-size: 16px;
-            width: 200px;
-            border-radius: 5px;
-        }
+/* Estilo para la caja de edición del cargo en la lista */
+.perfil-list .editable-cargo {
+    border: 1px solid #ccc; /* Borde gris claro */
+    padding: 5px; /* Espacio interno */
+    font-size: 16px; /* Tamaño de la fuente */
+    width: 200px; /* Ancho de la caja */
+    border-radius: 5px; /* Bordes redondeados */
+}
 
-        .perfil-list .edit-button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-            margin-left: 10px;
-        }
+/* Estilo para el botón de edición */
+.perfil-list .edit-button {
+    background-color: #4CAF50; /* Fondo verde */
+    color: white; /* Texto blanco */
+    border: none; /* Sin borde */
+    padding: 8px 15px; /* Espacio interno */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor */
+    font-size: 14px; /* Tamaño de la fuente */
+    margin-left: 10px; /* Espacio a la izquierda del botón */
+}
 
-        .perfil-list .edit-button:hover {
-            background-color: #45a049;
-        }
+/* Efecto al pasar el ratón sobre el botón de editar */
+.perfil-list .edit-button:hover {
+    background-color: #45a049; /* Cambia el color de fondo a un verde más oscuro */
+}
 
-        .logout-container {
-            margin-top: 20px;
-            text-align: center;
-        }
+/* Estilos para el botón de cerrar sesión en la lista */
+.logout-btn {
+    background-color: #ff4d4d; /* Fondo rojo para el botón */
+    color: white; /* Texto blanco */
+    padding: 10px 20px; /* Espacio interno */
+    border: none; /* Elimina el borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor a mano */
+}
 
-        .logout-btn {
-            background-color: #ff4d4d;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .logout-btn:hover {
-            background-color: #e60000;
-        }
+/* Efecto al pasar el ratón sobre el botón de cerrar sesión */
+.logout-btn:hover {
+    background-color: #e60000; /* Cambia el color de fondo a un rojo más oscuro */
+}

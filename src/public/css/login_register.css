@@ -1,91 +1,105 @@
+/* Estilo para el cuerpo de la página */
 body {
-    font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif; /* Establece la tipografía de todo el cuerpo a Arial, con sans-serif como respaldo */
     background-image: 
-    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(https://www.techtitute.com/techtitute/cursos/00135353/recursos/banner/curso-farmacologia-antibioticoterapia-portada.jpg);
-    background-size: cover; /* Hace que la imagen cubra toda la pantalla */
-    background-position: center; /* Centra la imagen */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* Añade un fondo de degradado oscuro con opacidad 50% */
+    url(https://www.techtitute.com/techtitute/cursos/00135353/recursos/banner/curso-farmacologia-antibioticoterapia-portada.jpg); /* Define una imagen de fondo */
+    background-size: cover; /* Hace que la imagen de fondo cubra toda la pantalla sin importar el tamaño de la ventana */
+    background-position: center; /* Centra la imagen de fondo en la pantalla */
+    background-repeat: no-repeat; /* Evita que la imagen de fondo se repita si es más pequeña que la pantalla */
+    display: flex; /* Utiliza Flexbox para distribuir los elementos hijos */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+    height: 100vh; /* Establece la altura del cuerpo como el 100% de la altura de la ventana */
+    margin: 0; /* Elimina el margen predeterminado del body */
 }
 
+/* Contenedor que centraliza todo el contenido */
 .container {
-    display: grid;
-    place-items: center;
-    padding: 1rem; /* Añadido padding */
+    display: grid; /* Utiliza un contenedor grid para facilitar la alineación */
+    place-items: center; /* Centra el contenido tanto horizontal como verticalmente */
+    padding: 1rem; /* Añade un pequeño espacio interno (padding) alrededor del contenedor */
 }
 
+/* Estilo para el formulario de inicio de sesión */
 .login-form {
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 50px 10px rgba(0, 0, 0, 0.1);
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 1rem;
-    width: 100%; /* Cambiado a 100% */
-    max-width: 400px; /* Ancho máximo */
+    background: white; /* Fondo blanco para el formulario */
+    padding: 2rem; /* Espacio interno de 2rem alrededor del formulario */
+    border-radius: 8px; /* Bordes redondeados de 8px */
+    box-shadow: 0 50px 10px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidad al formulario */
+    display: grid; /* Utiliza grid para organizar los elementos internos */
+    grid-template-columns: 1fr; /* Establece una sola columna para el formulario */
+    grid-gap: 1rem; /* Espacio entre los elementos del formulario */
+    width: 100%; /* Asegura que el formulario ocupe el 100% del ancho disponible */
+    max-width: 400px; /* Limita el ancho máximo del formulario a 400px */
 }
 
+/* Estilos para los grupos de campos dentro del formulario */
 .form-group {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: grid; /* Utiliza grid para organizar los campos de forma más flexible */
+    grid-template-columns: 1fr; /* Cada grupo ocupa toda la fila */
 }
 
+/* Estilo para las etiquetas de los campos */
 label {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.5rem; /* Espacio de 0.5rem debajo de las etiquetas */
 }
 
+/* Estilo para los campos de entrada de texto */
 input {
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 95%; /* Asegura que el input use el 100% de su contenedor */
+    padding: 0.5rem; /* Espacio interno de 0.5rem dentro de los campos */
+    border: 1px solid #ccc; /* Bordes finos y grises */
+    border-radius: 4px; /* Bordes ligeramente redondeados */
+    width: 95%; /* Hace que el campo ocupe el 95% del ancho disponible */
 }
 
+/* Estilos para el botón de envío */
 button {
-    padding: 0.7rem;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    padding: 0.7rem; /* Espacio interno de 0.7rem dentro del botón */
+    background-color: #007bff; /* Fondo azul para el botón */
+    color: white; /* Texto blanco */
+    border: none; /* Elimina los bordes predeterminados del botón */
+    border-radius: 4px; /* Bordes ligeramente redondeados */
+    cursor: pointer; /* Cambia el cursor a mano cuando se pasa sobre el botón */
 }
 
+/* Estilo para el botón cuando el usuario pasa el ratón sobre él */
 button:hover {
-    background-color: #0f4177;
+    background-color: #0f4177; /* Cambia el color de fondo a un tono más oscuro cuando se pasa el ratón */
 }
+
+/* Estilo para el enlace de registro */
 .register-link {
-    text-align: center;
+    text-align: center; /* Centra el enlace de registro */
 }
 
+/* Estilo para el enlace de registro */
 .register-link a {
-    color: #007bff;
-    text-decoration: none;
+    color: #007bff; /* Color azul para el enlace */
+    text-decoration: none; /* Elimina el subrayado por defecto del enlace */
 }
 
+/* Estilo para el enlace de registro cuando se pasa el ratón sobre él */
 .register-link a:hover {
-    text-decoration: underline;
+    text-decoration: underline; /* Subraya el enlace cuando el ratón pasa sobre él */
 }
 
-
-/* Media query para pantallas pequeñas */
+/* Media query para pantallas pequeñas (máximo 600px de ancho) */
 @media (max-width: 600px) {
+    /* Ajustes para el formulario en pantallas pequeñas */
     .login-form {
-        padding: 1.5rem; /* Reduce el padding en pantallas pequeñas */
-        width: 90%; /* Ajusta el ancho a 90% en móviles */
-        max-width: none; /* Remueve el ancho máximo */
+        padding: 1.5rem; /* Reduce el padding para que el formulario ocupe menos espacio */
+        width: 90%; /* Ajusta el ancho del formulario al 90% del contenedor */
+        max-width: none; /* Elimina el límite de ancho máximo en dispositivos pequeños */
     }
 
+    /* Aumenta el tamaño del texto del botón para hacerlo más accesible */
     button {
-        font-size: 1rem; /* Aumenta el tamaño del botón para facilitar su uso */
+        font-size: 1rem; /* Aumenta el tamaño de la fuente del botón */
     }
 
+    /* Aumenta el tamaño del texto en los campos de entrada */
     input {
-        font-size: 1rem; /* Aumenta el tamaño del texto en los inputs */
+        font-size: 1rem; /* Aumenta el tamaño de la fuente en los campos de entrada */
     }
 }

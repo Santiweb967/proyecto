@@ -1,196 +1,208 @@
-     /* Estilo para el formulario */
-     .factura {
-        max-width: 800px;
-        margin: 30px auto;
-        padding: 30px;
-        background-color: #ffffff;
-        border-radius: 10px;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        background: linear-gradient(135deg, #f7f7f7, #ffffff);
+/* Estilo para el contenedor principal del formulario de facturación */
+.factura {
+    max-width: 800px; /* Limita el ancho máximo del contenedor a 800px */
+    margin: 30px auto; /* Centra el contenedor horizontalmente con un margen de 30px arriba y abajo */
+    padding: 30px; /* Añade un espacio interno de 30px alrededor del contenido */
+    background-color: #ffffff; /* Fondo blanco para el contenedor */
+    border-radius: 10px; /* Bordes redondeados de 10px */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Sombra suave alrededor del contenedor */
+    background: linear-gradient(135deg, #f7f7f7, #ffffff); /* Fondo con un degradado suave */
+}
+
+/* Estilo para el encabezado de la factura */
+.factura h2 {
+    text-align: center; /* Centra el título */
+    font-size: 28px; /* Tamaño de fuente del título */
+    color: #4a4a4a; /* Color gris oscuro para el texto */
+    margin-bottom: 30px; /* Espacio de 30px debajo del título */
+    font-family: 'Arial', sans-serif; /* Fuente Arial para el título */
+}
+
+/* Estilos para el formulario de la factura */
+form {
+    display: grid; /* Usa el sistema de cuadrícula para los campos del formulario */
+    grid-template-columns: 1fr; /* Define una columna en la cuadrícula */
+    gap: 20px; /* Espacio de 20px entre los elementos del formulario */
+    font-family: 'Roboto', sans-serif; /* Fuente Roboto para los campos del formulario */
+}
+
+/* Estilo para las etiquetas del formulario */
+form label {
+    font-size: 16px; /* Tamaño de la fuente para las etiquetas */
+    font-weight: 600; /* Peso de fuente semi-negrita para las etiquetas */
+    color: #333; /* Color gris oscuro para el texto */
+    margin-bottom: 8px; /* Espacio de 8px debajo de cada etiqueta */
+}
+
+/* Estilo para los campos de entrada del formulario */
+form input {
+    padding: 12px; /* Espacio interno de 12px dentro del campo de entrada */
+    font-size: 16px; /* Tamaño de fuente de 16px */
+    border: 2px solid #ccc; /* Borde gris claro de 2px */
+    border-radius: 8px; /* Bordes redondeados de 8px */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves para el borde y la sombra */
+    background-color: #f9f9f9; /* Fondo gris claro para el campo de entrada */
+}
+
+/* Estilo cuando un campo de entrada está enfocado */
+form input:focus {
+    border-color: #4CAF50; /* Cambia el borde a verde cuando el campo está enfocado */
+    outline: none; /* Elimina el contorno predeterminado */
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5); /* Añade una sombra verde alrededor del campo */
+    background-color: #fff; /* Cambia el fondo a blanco cuando está enfocado */
+}
+
+/* Estilo del botón dentro del formulario */
+form button {
+    background-color: #4c82af; /* Color de fondo azul para el botón */
+    color: white; /* Texto blanco en el botón */
+    padding: 12px 20px; /* Espacio interno del botón */
+    font-size: 18px; /* Tamaño de fuente de 18px */
+    border: none; /* Elimina el borde predeterminado */
+    border-radius: 8px; /* Bordes redondeados de 8px */
+    cursor: pointer; /* Cambia el cursor a mano al pasar sobre el botón */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transiciones suaves para cambios de color y movimiento */
+    font-weight: bold; /* Hace que el texto sea en negrita */
+}
+
+/* Estilo cuando el ratón pasa sobre el botón (hover) */
+form button:hover {
+    background-color: #45a049; /* Cambia el color de fondo a verde cuando se pasa el ratón sobre el botón */
+    transform: translateY(-3px); /* Mueve el botón hacia arriba ligeramente */
+}
+
+/* Estilo cuando se hace clic en el botón (active) */
+form button:active {
+    background-color: #388e3c; /* Cambia el color a un verde más oscuro cuando se hace clic */
+    transform: translateY(1px); /* Mueve el botón ligeramente hacia abajo */
+}
+
+/* Estilos para los productos agregados */
+#productos-container {
+    margin-bottom: 20px; /* Añade un espacio de 20px debajo del contenedor de productos */
+}
+
+/* Estilo para cada ítem de producto dentro del contenedor */
+.producto-item {
+    background-color: #f1f1f1; /* Fondo gris claro para cada producto */
+    padding: 15px; /* Espacio interno de 15px dentro de cada producto */
+    border-radius: 8px; /* Bordes redondeados de 8px */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave alrededor de cada producto */
+    display: grid; /* Usa una cuadrícula para organizar los elementos del producto */
+    grid-template-columns: 1fr 1fr 1fr 1fr; /* Define 4 columnas dentro del contenedor de cada producto */
+    gap: 15px; /* Espacio de 15px entre los elementos dentro de cada producto */
+}
+
+/* Estilo para los campos de entrada dentro de cada producto */
+.producto-item input {
+    padding: 10px; /* Espacio interno de 10px */
+    font-size: 16px; /* Tamaño de fuente de 16px */
+    border-radius: 5px; /* Bordes redondeados de 5px */
+    border: 2px solid #ccc; /* Borde gris claro de 2px */
+    background-color: #fff; /* Fondo blanco para los campos de entrada */
+}
+
+/* Estilo para el botón de eliminar producto */
+.remove-producto {
+    background-color: #e57373; /* Color de fondo rojo claro para el botón */
+    color: white; /* Texto blanco para el botón */
+    padding: 8px 15px; /* Espacio interno de 8px arriba y abajo, 15px a los lados */
+    font-size: 14px; /* Tamaño de fuente de 14px */
+    border: none; /* Elimina el borde predeterminado */
+    border-radius: 5px; /* Bordes redondeados de 5px */
+    cursor: pointer; /* Cambia el cursor a mano al pasar sobre el botón */
+    transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+    align-self: flex-start; /* Alinea el botón hacia el inicio del contenedor */
+}
+
+/* Estilo cuando se pasa el ratón sobre el botón de eliminar */
+.remove-producto:hover {
+    background-color: #d32f2f; /* Cambia el color a rojo más oscuro cuando el ratón pasa sobre el botón */
+}
+
+/* Estilo para el botón de agregar productos */
+#add-producto {
+    background-color: #00796b; /* Color de fondo verde para el botón */
+    color: white; /* Texto blanco en el botón */
+    padding: 12px 20px; /* Espacio interno de 12px arriba y abajo, 20px a los lados */
+    font-size: 16px; /* Tamaño de fuente de 16px */
+    border: none; /* Elimina el borde predeterminado */
+    border-radius: 8px; /* Bordes redondeados de 8px */
+    cursor: pointer; /* Cambia el cursor a mano al pasar sobre el botón */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave para el color y el movimiento */
+    width: 100%; /* El botón ocupa el 100% del ancho disponible */
+}
+
+/* Estilo cuando se pasa el ratón sobre el botón de agregar */
+#add-producto:hover {
+    background-color: #004d40; /* Cambia el color a un verde más oscuro cuando el ratón pasa sobre el botón */
+    transform: translateY(-3px); /* Mueve el botón hacia arriba ligeramente */
+}
+
+/* Estilo cuando se hace clic en el botón de agregar */
+#add-producto:active {
+    background-color: #003d33; /* Cambia el color a un verde más oscuro cuando se hace clic */
+    transform: translateY(1px); /* Mueve el botón hacia abajo ligeramente */
+}
+
+/* Estilos responsivos para pantallas pequeñas */
+@media (max-width: 768px) {
+    .factura {
+        padding: 20px; /* Reduce el padding del contenedor en pantallas pequeñas */
     }
 
-    .factura h2 {
-        text-align: center;
-        font-size: 28px;
-        color: #4a4a4a;
-        margin-bottom: 30px;
-        font-family: 'Arial', sans-serif;
-    }
-
-    /* Estilos del formulario */
     form {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 20px;
-        font-family: 'Roboto', sans-serif;
-    }
-
-    form label {
-        font-size: 16px;
-        font-weight: 600;
-        color: #333;
-        margin-bottom: 8px;
-    }
-
-    form input {
-        padding: 12px;
-        font-size: 16px;
-        border: 2px solid #ccc;
-        border-radius: 8px;
-        transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        background-color: #f9f9f9;
-    }
-
-    form input:focus {
-        border-color: #4CAF50;
-        outline: none;
-        box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
-        background-color: #fff;
-    }
-
-    /* Estilo del botón */
-    form button {
-        background-color: #4c82af;
-        color: white;
-        padding: 12px 20px;
-        font-size: 18px;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-        font-weight: bold;
-    }
-
-    form button:hover {
-        background-color: #45a049;
-        transform: translateY(-3px);
-    }
-
-    form button:active {
-        background-color: #388e3c;
-        transform: translateY(1px);
-    }
-
-    /* Estilos para los productos agregados */
-    #productos-container {
-        margin-bottom: 20px;
+        grid-template-columns: 1fr; /* Muestra los elementos del formulario en una sola columna */
     }
 
     .producto-item {
-        background-color: #f1f1f1;
-        padding: 15px;
-        border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        gap: 15px;
+        grid-template-columns: 1fr; /* Muestra los productos en una sola columna en pantallas pequeñas */
     }
+}
 
-    .producto-item input {
-        padding: 10px;
-        font-size: 16px;
-        border-radius: 5px;
-        border: 2px solid #ccc;
-        background-color: #fff;
-    }
+/* Estilos para la lista de facturas */
+#facturas-list {
+    list-style-type: none; /* Elimina los puntos de la lista */
+    padding: 0; /* Elimina el padding predeterminado */
+    margin-top: 20px; /* Añade un margen superior de 20px */
+}
 
-    .remove-producto {
-        background-color: #e57373;
-        color: white;
-        padding: 8px 15px;
-        font-size: 14px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        align-self: flex-start;
-    }
+/* Estilo para cada ítem de la lista de facturas */
+#facturas-list li {
+    background-color: #fff; /* Fondo blanco para cada ítem de la lista */
+    border: 1px solid #ddd; /* Borde gris claro para cada ítem */
+    border-radius: 5px; /* Bordes redondeados de 5px */
+    margin-bottom: 10px; /* Espacio de 10px debajo de cada ítem */
+    padding: 15px; /* Espacio interno de 15px */
+    font-size: 16px; /* Tamaño de fuente de 16px */
+    display: flex; /* Usa un contenedor flexible para alinear los elementos */
+    justify-content: space-between; /* Distribuye el espacio entre los elementos */
+    align-items: center; /* Alinea los elementos verticalmente en el centro */
+}
 
-    .remove-producto:hover {
-        background-color: #d32f2f;
-    }
+/* Estilo para el texto dentro de cada ítem de la lista */
+#facturas-list li span {
+    font-weight: bold; /* Texto en negrita para los valores clave */
+}
 
-    /* Estilos para el botón de agregar productos */
-    #add-producto {
-        background-color: #00796b;
-        color: white;
-        padding: 12px 20px;
-        font-size: 16px;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-        width: 100%;
-    }
+/* Estilo para el precio total dentro de la lista */
+#facturas-list li .total {
+    color: #2d9cdb; /* Color azul para el precio total */
+    font-size: 18px; /* Tamaño de fuente mayor para el precio total */
+}
 
-    #add-producto:hover {
-        background-color: #004d40;
-        transform: translateY(-3px);
-    }
+/* Estilo para el botón dentro de la lista */
+#facturas-list li button {
+    background-color: #ff5c5c; /* Fondo rojo para el botón */
+    color: white; /* Texto blanco en el botón */
+    border: none; /* Elimina el borde predeterminado */
+    border-radius: 3px; /* Bordes redondeados de 3px */
+    padding: 5px 10px; /* Espacio interno de 5px arriba y abajo, 10px a los lados */
+    cursor: pointer; /* Cambia el cursor a mano al pasar sobre el botón */
+    font-size: 14px; /* Tamaño de fuente de 14px */
+}
 
-    #add-producto:active {
-        background-color: #003d33;
-        transform: translateY(1px);
-    }
-
-    /* Responsividad */
-    @media (max-width: 768px) {
-        .factura {
-            padding: 20px;
-        }
-
-        form {
-            grid-template-columns: 1fr;
-        }
-
-        .producto-item {
-            grid-template-columns: 1fr;
-        }
-    }
-
-    /* Estilo del contenedor de facturas */
-    #facturas-list {
-        list-style-type: none;
-        padding: 0;
-        margin-top: 20px;
-    }
-
-    /* Estilo para cada ítem de la lista */
-    #facturas-list li {
-        background-color: #fff;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        margin-bottom: 10px;
-        padding: 15px;
-        font-size: 16px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    /* Estilo para el texto dentro de la lista */
-    #facturas-list li span {
-        font-weight: bold;
-    }
-
-    /* Estilo para el precio total */
-    #facturas-list li .total {
-        color: #2d9cdb;
-        font-size: 18px;
-    }
-
-    /* Estilo para los botones o acciones en la lista */
-    #facturas-list li button {
-        background-color: #ff5c5c;
-        color: white;
-        border: none;
-        border-radius: 3px;
-        padding: 5px 10px;
-        cursor: pointer;
-        font-size: 14px;
-    }
-
-    /* Cambiar color de fondo al pasar el ratón sobre el botón */
-    #facturas-list li button:hover {
-        background-color: #e14e4e;
-    }
+/* Estilo cuando el ratón pasa sobre el botón de eliminar factura */
+#facturas-list li button:hover {
+    background-color: #e14e4e; /* Cambia el color de fondo a un rojo más oscuro */
+}

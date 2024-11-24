@@ -1,107 +1,101 @@
+/* Estilos para el menú desplegable */
+:root {
+  --main-color: #ffffff; /* Definición de una variable CSS para el color principal (blanco) */
+}
 
+* {
+  padding: 0; /* Elimina el espaciado interno predeterminado de todos los elementos */
+  margin: 0; /* Elimina el margen predeterminado de todos los elementos */
+  box-sizing: border-box; /* Incluye el padding y el border dentro del tamaño total de los elementos */
+}
 
-/*estilos de menu desplegable*/
-:root{
-    --main-color:#ffffff;
-  }
-  
-  *{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  
-  body{
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-  }
-  
-  .main-header{
-    background: #007bff;
-    width: 100%;
-    height:50px;
-  }
-  
-  nav{
-    z-index: 2;
-    position: absolute;
-    left:0;
-    top:0;
-    width: 200px;
-    top:50px;
-    background:#007bff;
-    transform:translateX(-100%);
-    transition:.4s ease;
-    border-radius: 8px;
-    border: 5px solid #ffffff; /* Añade un borde sutil */
-  }
-  
-  svg{
-    width: 20px;
-    height: 30px;
-    border-radius: 10px;
-  }
-  .navigation li{
-    list-style:none;
-    width: 100%;
-    border-bottom: 1px solid rgba(255,255,255,.5);
-  }
-  
-  .navigation a{
-    color:var(--main-color);
-    display: block;
-    line-height:3.5;
-    padding: 0 10px;
-    text-decoration:none;
-    transition:.4s ease;
-  }
-  
-  .navigation a:hover{
-    transform:translateX(10%);
-  }
-  
-  #btn-nav{
-    display: none;
-  }
-  
-  #btn-nav:checked ~ nav{
-    transform:translateX(0);
-  }
-  
-  .btn-nav{
-    color:var(--main-color);
-    font-size:30px;
-    position: absolute;
-    left:0;
-    top:0;
-    cursor:pointer;
-    padding:6.5px 15px;
-    transition:.2s ease;
-    background:rgba(0,0,0,.1);
-  }
-  
-  .btn-nav:hover{
-    background:rgba(0,0,0,.3);
-  }
+body {
+  font-family: Arial, sans-serif; /* Establece la fuente para el cuerpo del documento */
+  margin: 0; /* Elimina el margen alrededor del cuerpo */
+  padding: 0; /* Elimina el padding alrededor del cuerpo */
+  background-color: #f4f4f4; /* Establece un color de fondo gris claro */
+}
 
+.main-header {
+  background: #007bff; /* Establece un fondo azul para el header */
+  width: 100%; /* Hace que el header ocupe todo el ancho de la pantalla */
+  height: 50px; /* Establece una altura fija de 50px para el header */
+}
 
+nav {
+  z-index: 2; /* Asegura que el menú desplegable quede por encima de otros elementos */
+  position: absolute; /* Ubica el menú de forma absoluta en la pantalla */
+  left: 0; /* Alinea el menú al borde izquierdo */
+  top: 0; /* Alinea el menú al borde superior */
+  width: 200px; /* Establece el ancho del menú desplegable */
+  top: 50px; /* Coloca el menú justo debajo del header */
+  background: #007bff; /* Aplica el mismo color azul que el header al fondo del menú */
+  transform: translateX(-100%); /* Inicialmente coloca el menú fuera de la pantalla a la izquierda */
+  transition: .4s ease; /* Aplica una transición suave de 0.4 segundos para los cambios de posición */
+  border-radius: 8px; /* Redondea ligeramente las esquinas del menú */
+  border: 5px solid #ffffff; /* Añade un borde blanco sutil alrededor del menú */
+}
 
+svg {
+  width: 20px; /* Establece el ancho de los iconos SVG */
+  height: 30px; /* Establece la altura de los iconos SVG */
+  border-radius: 10px; /* Redondea los bordes del icono SVG */
+}
 
-/*estilos de la pagina generales*/
+.navigation li {
+  list-style: none; /* Elimina los puntos de lista de los elementos de navegación */
+  width: 100%; /* Hace que los elementos de la lista ocupen todo el ancho disponible */
+  border-bottom: 1px solid rgba(255, 255, 255, .5); /* Añade una línea de separación sutil entre los elementos */
+}
+
+.navigation a {
+  color: var(--main-color); /* Aplica el color blanco definido en la variable CSS */
+  display: block; /* Hace que los enlaces ocupen toda la línea */
+  line-height: 3.5; /* Ajusta la altura de línea para el texto del enlace */
+  padding: 0 10px; /* Aplica un padding de 0px arriba y abajo, y 10px a la izquierda y derecha */
+  text-decoration: none; /* Elimina el subrayado predeterminado de los enlaces */
+  transition: .4s ease; /* Aplica una transición suave de 0.4 segundos para los efectos de hover */
+}
+
+.navigation a:hover {
+  transform: translateX(10%); /* Desplaza el enlace ligeramente hacia la derecha cuando se pasa el ratón sobre él */
+}
+
+#btn-nav {
+  display: none; /* Esconde el botón de navegación por defecto (se utiliza en dispositivos móviles) */
+}
+
+#btn-nav:checked ~ nav {
+  transform: translateX(0); /* Mueve el menú desde fuera de la pantalla hacia la posición visible */
+}
+
+.btn-nav {
+  color: var(--main-color); /* Establece el color del botón en blanco */
+  font-size: 30px; /* Define el tamaño de fuente grande para el botón */
+  position: absolute; /* Coloca el botón de navegación de forma absoluta */
+  left: 0; /* Alinea el botón al borde izquierdo */
+  top: 0; /* Alinea el botón al borde superior */
+  cursor: pointer; /* Cambia el cursor a mano al pasar sobre el botón */
+  padding: 6.5px 15px; /* Aplica un padding interno al botón */
+  transition: .2s ease; /* Aplica una transición rápida para los efectos de hover */
+  background: rgba(0, 0, 0, .1); /* Aplica un fondo ligeramente oscuro al botón */
+}
+
+.btn-nav:hover {
+  background: rgba(0, 0, 0, .3); /* Oscurece el fondo del botón al pasar el ratón sobre él */
+}
+
+/* Estilos generales de la página */
 main {
-  padding: 20px;
+  padding: 20px; /* Aplica un espaciado interno de 20px alrededor del contenido principal */
 }
 
 footer {
-  text-align: center;
-  padding: 10px;
-  background-color: #007bff;
-  color: white;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+  text-align: center; /* Centra el contenido del pie de página */
+  padding: 10px; /* Aplica un espaciado interno de 10px */
+  background-color: #007bff; /* Aplica un fondo azul al pie de página */
+  color: white; /* Establece el texto en blanco */
+  position: fixed; /* Fija el pie de página en la parte inferior de la página */
+  bottom: 0; /* Lo posiciona en la parte más baja de la ventana */
+  width: 100%; /* Asegura que el pie de página ocupe todo el ancho disponible */
 }
-
-

@@ -1,49 +1,55 @@
+/* Estilo para el contenedor de la sección de introducción */
 #intro {
-    background-color: #007bff;
-    color: white;
-    padding: 40px;
-    text-align: center;
-    margin:10px;
-    border-radius: 10px;
+    background-color: #007bff; /* Fondo azul para la sección de introducción */
+    color: white; /* Texto blanco en la sección */
+    padding: 40px; /* Espacio interno de 40px alrededor del contenido */
+    text-align: center; /* Centra el texto dentro de la sección */
+    margin: 10px; /* Margen de 10px alrededor de la sección */
+    border-radius: 10px; /* Bordes redondeados de 10px */
 }
 
+/* Estilos para el contenedor del carrusel */
 .carousel {
-    position: relative;
-    width: 90%; /* Aumenta el ancho para pantallas pequeñas */
-    max-width: 800px; /* Máximo ancho para pantallas grandes */
-    margin: 20px auto; /* Margen superior e inferior */
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: relative; /* Establece la posición relativa para posicionar los elementos dentro del carrusel */
+    width: 90%; /* El carrusel ocupa el 90% del ancho del contenedor padre */
+    max-width: 800px; /* Limita el ancho máximo del carrusel a 800px */
+    margin: 20px auto; /* Margen superior e inferior de 20px y centrado horizontalmente */
+    overflow: hidden; /* Oculta el contenido que se sale del contenedor (como las imágenes que se deslizan fuera de vista) */
+    border-radius: 8px; /* Bordes redondeados de 8px para el carrusel */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra suave alrededor del carrusel para dar profundidad */
 }
 
+/* Contenedor interno del carrusel que alberga los elementos */
 .carousel-inner {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
+    display: flex; /* Usamos flexbox para alinear los items horizontalmente */
+    transition: transform 0.5s ease-in-out; /* Suaviza la transición de movimiento cuando se cambian los elementos del carrusel */
+    width: 100%; /* El contenedor interno ocupa todo el ancho disponible */
 }
 
+/* Estilo para cada ítem individual dentro del carrusel */
 .carousel-item {
-    z-index: 1;
-    flex: 0 0 100%; /* Cada item ocupará el 100% del contenedor */
-    box-sizing: border-box;
-    padding: 20px;
-    background-color: white;
-    text-align: center;
-    border-radius: 8px; /* Bordes redondeados para los items */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para profundidad */
+    z-index: 1; /* Establece el índice z para asegurar que los elementos se apilen correctamente */
+    flex: 0 0 100%; /* Cada ítem ocupa el 100% del ancho del carrusel, de modo que solo uno se muestra a la vez */
+    box-sizing: border-box; /* Asegura que el padding y el border no afecten al tamaño total del elemento */
+    padding: 20px; /* Añade 20px de espacio interno dentro de cada item */
+    background-color: white; /* Fondo blanco para cada ítem */
+    text-align: center; /* Centra el contenido de cada ítem (por ejemplo, el texto o las imágenes) */
+    border-radius: 8px; /* Bordes redondeados de 8px para cada ítem */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra suave para dar profundidad a los ítems */
 }
 
+/* Estilo para las imágenes dentro de cada ítem del carrusel */
 .carousel-item img {
-    max-width: 100%; /* Asegura que la imagen sea responsiva */
-    height: auto; /* Mantiene la proporción de aspecto */
-    display: block;
-    margin: 0 auto; /* Centra la imagen */
+    max-width: 100%; /* Hace que las imágenes sean responsivas y ocupen el 100% del ancho de su contenedor */
+    height: auto; /* Mantiene la proporción de la imagen sin distorsionarla */
+    display: block; /* Evita los espacios debajo de las imágenes (específicamente útil en imágenes inline) */
+    margin: 0 auto; /* Centra la imagen horizontalmente dentro del contenedor */
 }
+
+/* Estilos responsivos para pantallas pequeñas (máximo de 600px de ancho) */
 @media (max-width: 600px) {
 
     .carousel-item {
-        
-        padding: 15px; /* Ajusta el padding para pantallas pequeñas */
+        padding: 15px; /* Reduce el padding a 15px para pantallas más pequeñas */
     }
 }

@@ -1,72 +1,95 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="es">
+
 <head>
+    <!-- Metaetiquetas para la codificación de caracteres y la visualización en dispositivos móviles -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Título de la página -->
     <title>Editar Perfil</title>
+    
+    <!-- Enlace a los archivos de estilo CSS -->
     <link rel="stylesheet" href="../public/css/style.css">
     <link rel="stylesheet" href="../public/css/editprofile.css">
 </head>
+
 <body>
+    <!-- Cabecera principal con el menú de navegación -->
     <header class="main-header">
-        <label for="btn-nav" class="btn-nav"><i class="fas fa-bars"></i><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
-            <path d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z"></path>
-            </svg></label>
+        <!-- Botón para abrir el menú en dispositivos móviles -->
+        <label for="btn-nav" class="btn-nav">
+            <i class="fas fa-bars"></i>
+            <!-- Icono de hamburguesa, en este caso un SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
+                <path d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z"></path>
+            </svg>
         </label>
+        
+        <!-- Checkbox oculto para activar el menú -->
         <input type="checkbox" id="btn-nav">
+        
+        <!-- Menú de navegación -->
         <nav>
             <ul class="navigation">
+                <!-- Enlaces de navegación en el menú -->
                 <li><a href="index.html">Home</a></li>
-                <li><a href="stok.html">stok</a></li>
-                <li><a href="facturacion.html">Facturacion</a></li>
-                <li><a href="perfil.html">perfil</a></li>
+                <li><a href="stok.html">Stock</a></li>
+                <li><a href="facturacion.html">Facturación</a></li>
+                <li><a href="perfil.html">Perfil</a></li>
                 <li><a href="edit.html">Editar perfil</a></li>
             </ul>
         </nav>
     </header>
 
+    <!-- Contenedor principal de la página -->
     <div class="container">
         <div class="form-box">
+            <!-- Título del formulario -->
             <h1>Editar Perfil</h1>
+            
+            <!-- Formulario para editar perfil -->
             <form id="editProfileForm" method="POST">
-                <!-- Nombre -->
+                <!-- Campo de texto para el nombre -->
                 <div class="form-group">
                     <label for="nombre">Nombre</label>
                     <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
                 </div>
 
-                <!-- Correo Electrónico -->
+                <!-- Campo de texto para el correo electrónico -->
                 <div class="form-group">
                     <label for="email">Correo Electrónico</label>
                     <input type="email" id="email" name="email" placeholder="tu.email@ejemplo.com" required>
                 </div>
 
-                <!-- Contraseña -->
+                <!-- Campo de contraseña -->
                 <div class="form-group">
                     <label for="password">Contraseña</label>
                     <input type="password" id="password" name="password" placeholder="Contraseña" required>
                 </div>
 
-                <!-- Confirmar Contraseña -->
+                <!-- Campo de confirmación de contraseña -->
                 <div class="form-group">
                     <label for="confirm-password">Confirmar Contraseña</label>
                     <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirmar Contraseña" required>
                 </div>
 
-                <!-- Botón de guardar cambios -->
+                <!-- Botón para guardar los cambios -->
                 <button type="submit">Guardar Cambios</button>
             </form>
         </div>
     </div>
 
+    <!-- Pie de página -->
     <footer>
         <p>&copy; 2024 Facturación Electrónica</p>
     </footer>
 
+    <!-- Script para manejar el envío del formulario -->
     <script>
         // Agregar un evento al formulario para manejar el envío de datos
         document.getElementById('editProfileForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // Evitar que el formulario se envíe de la manera tradicional
+            e.preventDefault(); // Evitar que el formulario se envíe de manera tradicional
 
             // Obtener los datos del formulario y convertirlos en un objeto
             const nombre = document.getElementById('nombre').value;
@@ -80,7 +103,7 @@
                 return;
             }
 
-            // Crear un objeto con los datos
+            // Crear un objeto con los datos para enviarlos al servidor
             const formData = {
                 nombre: nombre,
                 email: email,
@@ -88,23 +111,24 @@
                 confirm_password: confirmPassword
             };
 
-            // Enviar los datos al backend con 'fetch'
+            // Enviar los datos al backend usando fetch
             fetch('http://localhost:3000/editarPerfil', {
-                method: 'POST',
+                method: 'POST',  // Indicamos que se trata de una petición POST
                 headers: {
-                    'Content-Type': 'application/json',  // Asegurarse de que sea JSON
+                    'Content-Type': 'application/json',  // Asegurarse de que se envíen datos en formato JSON
                 },
-                body: JSON.stringify(formData)  // Convertir el objeto a JSON
+                body: JSON.stringify(formData)  // Convertir los datos del formulario a JSON
             })
-            .then(response => response.json())  // Parsear la respuesta JSON
+            .then(response => response.json())  // Parsear la respuesta en formato JSON
             .then(data => {
-                alert(data.message);  // Mostrar mensaje de éxito o error
+                alert(data.message);  // Mostrar mensaje de éxito o error según la respuesta del servidor
             })
             .catch(error => {
-                console.error('Error:', error);
+                console.error('Error:', error);  // En caso de error, mostrarlo en la consola
                 alert('Hubo un error al guardar los cambios');
             });
         });
     </script>
 </body>
+
 </html>

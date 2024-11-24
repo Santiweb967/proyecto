@@ -1,50 +1,74 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="es">
 <head>
+    <!-- Definición de la codificación de caracteres como UTF-8 para soportar caracteres especiales -->
     <meta charset="UTF-8">
+    
+    <!-- Establece la escala del sitio para dispositivos móviles, de modo que sea responsivo -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Enlace al archivo CSS externo para el estilo de la página -->
     <link rel="stylesheet" href="public/css/login_register.css">
+    
+    <!-- Título de la página que se muestra en la pestaña del navegador -->
     <title>Registro de Usuario</title>
 </head>
 <body>
+    <!-- Contenedor principal del formulario -->
     <div class="container">
+        <!-- Formulario de registro con un id y clase específica -->
         <form id="registroForm" class="login-form">
+            <!-- Título del formulario -->
             <h2>Registro de Usuario</h2>
+
+            <!-- Campo para el nombre del usuario -->
             <div class="form-group">
                 <label for="nombre">Nombre:</label>
+                <!-- Campo de texto para el nombre, requerido -->
                 <input type="text" id="nombre" name="nombre" required>
             </div>
 
+            <!-- Campo para el correo electrónico del usuario -->
             <div class="form-group">
                 <label for="email">Correo Electrónico:</label>
+                <!-- Campo para el correo electrónico, de tipo email, requerido -->
                 <input type="email" id="email" name="email" required>
             </div>
 
+            <!-- Campo para la contraseña del usuario -->
             <div class="form-group">
                 <label for="password">Contraseña:</label>
+                <!-- Campo para la contraseña, de tipo password, requerido -->
                 <input type="password" id="password" name="password" required>
             </div>
 
+            <!-- Campo para confirmar la contraseña -->
             <div class="form-group">
                 <label for="confirm_password">Confirmar Contraseña:</label>
+                <!-- Campo para confirmar la contraseña, de tipo password, requerido -->
                 <input type="password" id="confirm_password" name="confirm_password" required>
             </div>
 
+            <!-- Campo para seleccionar el cargo del usuario (solo una opción en este caso) -->
             <div class="form-group">
                 <label for="cargo">Cargo:</label>
+                <!-- Selección para el cargo, solo se puede elegir "Vendedor" -->
                 <select id="cargo" name="cargo" required>
                     <option value="Vendedor">Vendedor</option> <!-- Solo opción de Vendedor -->
                 </select>
             </div>
 
+            <!-- Botón para enviar el formulario -->
             <button type="submit">Registrar</button>
 
+            <!-- Enlace para redirigir a la página de login si el usuario ya tiene cuenta -->
             <div class="login-link">
                 <p>¿Ya tienes cuenta? <a href="pages/login.html">Inicia sesión aquí</a></p>
             </div>
         </form>
     </div>
 
+    <!-- Script para manejar la lógica del formulario y el envío de datos -->
     <script>
         // Capturar el formulario y el evento de envío
         const formulario = document.getElementById('registroForm');
@@ -54,35 +78,37 @@
             // Obtener los datos del formulario
             const formData = new FormData(formulario);
             const data = {
-                nombre: formData.get('nombre'),
-                email: formData.get('email'),
-                password: formData.get('password'),
-                confirm_password: formData.get('confirm_password'),
+                nombre: formData.get('nombre'),  // Obtiene el nombre del formulario
+                email: formData.get('email'),    // Obtiene el correo electrónico
+                password: formData.get('password'),  // Obtiene la contraseña
+                confirm_password: formData.get('confirm_password'), // Obtiene la confirmación de la contraseña
                 cargo: formData.get('cargo')  // Solo Vendedor
             };
 
             try {
-                // Enviar los datos al backend con fetch
+                // Enviar los datos al backend con fetch para procesar el registro
                 const response = await fetch('http://localhost:3000/register', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json',
+                        'Content-Type': 'application/json',  // Especifica que el contenido es JSON
                     },
-                    body: JSON.stringify(data),
+                    body: JSON.stringify(data),  // Envía los datos como JSON en el cuerpo de la solicitud
                 });
 
+                // Convertir la respuesta en formato JSON
                 const result = await response.json();
 
                 if (response.ok) {
-                    // Si la respuesta es exitosa, mostramos el mensaje de éxito
+                    // Si la respuesta es exitosa (status 200), mostramos un mensaje de éxito
                     alert(result.message);
-                    window.location.href = 'pages/login.html';  // Redirigir al login después de registrarse
+                    window.location.href = 'pages/login.html';  // Redirige al login después del registro exitoso
                 } else {
-                    // Si hubo un error, mostramos el mensaje de error
+                    // Si hay un error, mostramos un mensaje con el error
                     alert(result.error || 'Ocurrió un error en el registro');
                 }
 
             } catch (error) {
+                // Captura cualquier error en el proceso de la solicitud y lo muestra
                 console.error('Error al enviar la solicitud:', error);
                 alert('Hubo un error al registrar el usuario. Intenta nuevamente.');
             }

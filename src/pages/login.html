@@ -1,75 +1,96 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Definir el juego de caracteres como UTF-8 -->
     <meta charset="UTF-8">
+    
+    <!-- Hacer que la página sea responsiva (adaptable a dispositivos móviles) -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Enlace al archivo CSS para el estilo de la página -->
     <link rel="stylesheet" href="../public/css/login_register.css">
+    
+    <!-- Título de la página -->
     <title>Login</title>
 </head>
 <body>
+    <!-- Contenedor principal del formulario de inicio de sesión -->
     <div class="container">
+        <!-- Formulario para iniciar sesión -->
         <form class="login-form" id="loginForm">
+            <!-- Título del formulario -->
             <h2>Iniciar Sesión</h2>
             
+            <!-- Campo para ingresar el correo electrónico -->
             <div class="form-group">
                 <label for="email">Correo Electrónico:</label> 
                 <input type="email" id="email" name="email" required> 
             </div>
+            
+            <!-- Campo para ingresar la contraseña -->
             <div class="form-group">
                 <label for="password">Contraseña:</label>
                 <input type="password" id="password" name="password" required>
+                
+                <!-- Botón para alternar entre mostrar/ocultar la contraseña -->
                 <button type="button" id="togglePassword">Mostrar Contraseña</button>
             </div>
+            
+            <!-- Enlace para redirigir al formulario de registro -->
             <div class="register-link">
                 <p>No tienes una cuenta? <a href="../registro.html">Regístrate aquí</a></p>
             </div>
+            
+            <!-- Botón para enviar el formulario -->
             <button type="submit">Entrar</button>
         </form>
     </div>
 
     <script>
+        // Escuchar el evento submit del formulario de login
         document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault();
+            event.preventDefault();  // Prevenir que el formulario se envíe de forma convencional
             
+            // Obtener los valores del formulario
             const email = document.getElementById('email').value;  
             const password = document.getElementById('password').value;
 
-            // Validar el correo electrónico
+            // Validar el formato del correo electrónico mediante una expresión regular
             const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
             if (!emailPattern.test(email)) {
                 alert("Por favor ingresa un correo electrónico válido.");
                 return;
             }
 
+            // Realizar una solicitud HTTP POST al servidor para verificar las credenciales
             fetch('http://localhost:3000/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ email, password })
+                body: JSON.stringify({ email, password })  // Enviar el correo y la contraseña como JSON
             })
-            .then(response => response.json())
+            .then(response => response.json())  // Convertir la respuesta a formato JSON
             .then(data => {
                 if (data.message) {
-                    // Guardar el correo en localStorage para futuras consultas
+                    // Si la respuesta es exitosa, guardar el correo en localStorage y redirigir al usuario
                     localStorage.setItem('userEmail', email);
-
-                    alert(data.message);
+                    alert(data.message);  // Mostrar el mensaje de éxito
                     window.location.href = 'index.html'; // Redirigir a la página principal después del login exitoso
                 } else {
-                    alert(data.error || 'Error en el login');
+                    alert(data.error || 'Error en el login');  // Mostrar error si las credenciales son incorrectas
                 }
             })
             .catch(error => {
-                alert('Error de conexión al servidor');
+                alert('Error de conexión al servidor');  // Manejo de errores de conexión
                 console.error('Error:', error);
             });
         });
 
-        // Función para mostrar/ocultar la contraseña
+        // Función para alternar entre mostrar y ocultar la contraseña
         document.getElementById('togglePassword').addEventListener('click', function() {
             const passwordField = document.getElementById('password');
-            const type = passwordField.type === 'password' ? 'text' : 'password';
+            const type = passwordField.type === 'password' ? 'text' : 'password';  // Cambiar el tipo de la contraseña entre "password" y "text"
             passwordField.type = type;
         });
     </script>
