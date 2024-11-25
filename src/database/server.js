@@ -432,7 +432,47 @@ app.put('/api/products/:id', (req, res) => {
     });
 });
 
-  
+// Función para realizar la búsqueda de productos
+function searchProducts() {
+    const query = document.getElementById('searchQuery').value;
+
+    if (!query) {
+        alert('Por favor, ingresa un término de búsqueda');
+        return;
+    }
+
+    // Realizar la solicitud a la API de búsqueda
+    fetch(`http://localhost:3000/api/searchProducts?query=${query}`)
+        .then(response => response.json())
+        .then(data => {
+            displaySearchResults(data);  // Mostrar los resultados
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Hubo un error en la búsqueda');
+        });
+}
+
+// Función para mostrar los resultados de la búsqueda
+function displaySearchResults(products) {
+    const resultsDiv = document.getElementById('searchResults');
+    resultsDiv.innerHTML = '';  // Limpiar los resultados anteriores
+
+    if (products.length === 0) {
+        resultsDiv.innerHTML = '<p>No se encontraron productos</p>';
+        return;
+    }
+
+    // Crear un listado de productos
+    const ul = document.createElement('ul');
+    products.forEach(product => {
+        const li = document.createElement('li');
+        li.textContent = `${product.name} (${product.mark}) - $${product.price}`;
+        ul.appendChild(li);
+    });
+
+    resultsDiv.appendChild(ul);
+}
 
 
 // Iniciar el servidor

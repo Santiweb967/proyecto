@@ -1,21 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Definición de la codificación de caracteres como UTF-8 para soportar caracteres especiales -->
     <meta charset="UTF-8">
-    
-    <!-- Establece la escala del sitio para dispositivos móviles, haciendo que sea responsivo -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Título de la página, que se muestra en la pestaña del navegador -->
     <title>Gestión de Stock</title>
-    
-    <!-- Enlace a los archivos de estilo CSS para la página -->
     <link rel="stylesheet" href="../public/css/style.css">
     <link rel="stylesheet" href="../public/css/stok.css">
 </head>
 <body onload="listProducts()">
-    <!-- Cabecera principal del sitio -->
     <header class="main-header">
         <nav>
             <ul class="navigation">
@@ -29,19 +21,17 @@
     </header>
 
     <main>
-        <!-- Formulario para agregar un nuevo producto -->
         <form id="product-form">
+            <!-- Campo de búsqueda -->
+            <input type="text" id="search-input" placeholder="Buscar producto" oninput="searchProducts()">
             <input type="text" id="product-name" name="productname" placeholder="Nombre del producto" required>
             <input type="text" id="product-mark" placeholder="Marca del producto" required>
             <input type="number" id="product-quantity" placeholder="Cantidad" required>
             <input type="number" id="product-price" placeholder="Precio Unitario" required>
-            <!-- Botón para agregar un nuevo producto -->
             <button type="submit" id="submit-btn" name="submit">Agregar Producto</button>
-            <!-- Botón para guardar los cambios al editar un producto -->
             <button type="button" id="save-btn" style="display:none;" onclick="saveProduct()">Guardar Cambios</button>
         </form>
-        
-        <!-- Tabla para listar los productos -->
+
         <table id="product-table">
             <thead>
                 <tr>
@@ -58,47 +48,59 @@
         </table>
     </main>
 
-    <!-- Pie de página -->
     <footer>
         <p>&copy; 2024 Gestión de Stock</p>
     </footer>
 
-    <!-- Scripts para gestionar los productos -->
     <script>
         let currentProductId = null;  // Variable global para almacenar el ID del producto a editar
+        let allProducts = [];  // Arreglo para almacenar todos los productos
 
         // Función para listar productos
         function listProducts() {
             fetch('http://localhost:3000/api/products')
                 .then(response => response.json())  // Procesar la respuesta como JSON
                 .then(products => {
-                    const tableBody = document.querySelector('#product-table tbody');
-                    tableBody.innerHTML = '';  // Limpiar la tabla antes de agregar los nuevos productos
-
-                    products.forEach((product) => {
-                        const row = document.createElement('tr');
-
-                        // Si el producto está agotado, aplicamos la clase 'producto-agotado' para destacarlo
-                        if (product.quantity === 0) {
-                            row.classList.add('producto-agotado');
-                        }
-
-                        // Agregar una nueva fila a la tabla con la información del producto
-                        row.innerHTML = `
-                            <td>${product.name}</td>
-                            <td>${product.mark}</td>
-                            <td>${product.quantity}</td>
-                            <td>${product.price}</td>
-                            <td>
-                                <button class="edit" onclick="editProduct(${product.id})">Editar</button>
-                                <button class="outofstock" onclick="outOfStock(${product.id})">Agotar producto</button>
-                                ${product.quantity === 0 ? `<button class="reactivate" onclick="reactivateProduct(${product.id})">Reactivar producto</button>` : ''}
-                            </td>
-                        `;
-                        tableBody.appendChild(row);  // Añadir la fila a la tabla
-                    });
+                    allProducts = products;  // Guardar todos los productos para realizar la búsqueda
+                    displayProducts(products);  // Mostrar los productos en la tabla
                 })
                 .catch(error => console.error('Error al listar productos:', error));  // Manejo de errores
+        }
+
+        // Función para mostrar los productos en la tabla
+        function displayProducts(products) {
+            const tableBody = document.querySelector('#product-table tbody');
+            tableBody.innerHTML = '';  // Limpiar la tabla antes de agregar los nuevos productos
+
+            products.forEach((product) => {
+                const row = document.createElement('tr');
+                if (product.quantity === 0) {
+                    row.classList.add('producto-agotado');  // Aplicar clase para productos agotados
+                }
+
+                row.innerHTML = `
+                    <td>${product.name}</td>
+                    <td>${product.mark}</td>
+                    <td>${product.quantity}</td>
+                    <td>${product.price}</td>
+                    <td>
+                        <button class="edit" onclick="editProduct(${product.id})">Editar</button>
+                        <button class="outofstock" onclick="outOfStock(${product.id})">Agotar producto</button>
+                        ${product.quantity === 0 ? `<button class="reactivate" onclick="reactivateProduct(${product.id})">Reactivar producto</button>` : ''}
+                    </td>
+                `;
+                tableBody.appendChild(row);  // Añadir la fila a la tabla
+            });
+        }
+
+        // Función para realizar la búsqueda de productos
+        function searchProducts() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();  // Obtener el término de búsqueda
+            const filteredProducts = allProducts.filter(product => 
+                product.name.toLowerCase().includes(searchTerm) || 
+                product.mark.toLowerCase().includes(searchTerm)
+            );
+            displayProducts(filteredProducts);  // Mostrar los productos filtrados
         }
 
         // Función para agregar un producto
@@ -140,9 +142,8 @@
 
                     currentProductId = id;  // Guardar el ID del producto que se está editando
 
-                    // Mostrar el botón "Guardar Cambios" y ocultar el botón de "Agregar Producto"
-                    document.getElementById('submit-btn').style.display = 'none';
-                    document.getElementById('save-btn').style.display = 'inline-block';
+                    document.getElementById('submit-btn').style.display = 'none';  // Ocultar botón "Agregar Producto"
+                    document.getElementById('save-btn').style.display = 'inline-block';  // Mostrar botón "Guardar Cambios"
                 })
                 .catch(error => console.error('Error al obtener el producto:', error));  // Manejo de errores
         }
