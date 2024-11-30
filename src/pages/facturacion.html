@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -7,17 +7,18 @@
     <link rel="stylesheet" href="../public/css/style.css">
     <link rel="stylesheet" href="../public/css/facturacion.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 
 <body>
     <header class="main-header">
         <nav>
             <ul class="navigation">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="stok.html">Stock</a></li>
-                <li><a href="facturacion.html">Facturación</a></li>
-                <li><a href="perfil.html">Perfil</a></li>
-                <li><a href="edit.html">Editar perfil</a></li>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="stok.html"><i class="fas fa-box"></i> Stok</a></li>
+                <li><a href="facturacion.html"><i class="fas fa-file-invoice-dollar"></i> Facturación</a></li>
+                <li><a href="perfil.html"><i class="fas fa-user"></i> Perfil</a></li>
+                <li><a href="edit.html"><i class="fas fa-user-edit"></i> Editar Perfil</a></li>
             </ul>
         </nav>
     </header>
@@ -31,16 +32,16 @@
 
                 <h3>Productos</h3>
                 <div id="productos-container">
-                    <div class="producto-item">
-                        <label for="producto">Producto:</label>
-                        <input type="text" class="producto" name="producto[]" required>
-                        
-                        <label for="cantidad">Cantidad:</label>
-                        <input type="number" class="cantidad" name="cantidad[]" required>
-                        
-                        <label for="precio">Precio por Unidad:</label>
-                        <input type="number" class="precio" name="precio[]" required>
-                        
+                    <div class="producto-item" id="producto-1">
+                        <label for="producto-1">Producto:</label>
+                        <input type="text" class="producto" name="producto[]" id="producto-1" required>
+
+                        <label for="cantidad-1">Cantidad:</label>
+                        <input type="number" class="cantidad" name="cantidad[]" id="cantidad-1" required>
+
+                        <label for="precio-1">Precio por Unidad:</label>
+                        <input type="number" class="precio" name="precio[]" id="precio-1" required>
+
                         <button type="button" class="remove-producto">Eliminar Producto</button>
                     </div>
                 </div>
@@ -64,6 +65,7 @@
     <script type="module" src="../public/js/factura.js"></script>
 
     <script>
+        // Obtener todas las facturas
         fetch('http://localhost:3000/getFacturas')
             .then(response => response.json())
             .then(facturas => {
@@ -72,19 +74,26 @@
 
                 facturas.forEach(factura => {
                     const li = document.createElement('li');
+
+                    // Verifica si la propiedad 'productos' está definida antes de usar map()
+                    const productosHTML = factura.productos && Array.isArray(factura.productos)
+                        ? factura.productos.map((producto, index) => `
+                            <li>Producto: ${producto.nombre}, Cantidad: ${producto.cantidad}, Precio: $${producto.precio}</li>
+                        `).join('')
+                        : '<li>No se encontraron productos</li>';
+
                     li.innerHTML = `
                         <strong>Factura ID:</strong> ${factura.id}<br>
                         <strong>Cliente:</strong> ${factura.nombre_cliente}<br>
                         <strong>Total:</strong> $${factura.total}
-                        
+
                         <h4>Productos</h4>
                         <ul>
-                            ${factura.productos.map(producto => `
-                                <li>Producto: ${producto.nombre}, Cantidad: ${producto.cantidad}, Precio: $${producto.precio}</li>
-                            `).join('')}
+                            ${productosHTML}
                         </ul>
-                        
+
                         <button onclick="descargarFactura(${factura.id})">Descargar Factura</button>
+                        <button onclick="volverADescargar(${factura.id})">Volver a Descargar</button>
                     `;
                     facturasList.appendChild(li);
                 });
@@ -93,6 +102,7 @@
                 console.error('Error al obtener las facturas:', error);
             });
 
+        // Función para descargar la factura en formato PDF
         function descargarFactura(id) {
             fetch(`http://localhost:3000/getFactura/${id}`)
                 .then(response => response.json())
@@ -117,6 +127,75 @@
                     console.error('Error al obtener la factura:', error);
                 });
         }
+
+        // Función para volver a descargar la factura ya generada
+        function volverADescargar(id) {
+            alert("Volviendo a descargar la factura...");
+            descargarFactura(id); // Reutilizamos la misma función de descarga
+        }
+
+        // Función para agregar un producto
+        document.getElementById('add-producto').addEventListener('click', function() {
+            const container = document.getElementById('productos-container');
+            const productoCount = container.children.length + 1;
+            const productoItem = document.createElement('div');
+            productoItem.classList.add('producto-item');
+            productoItem.id = `producto-${productoCount}`;
+
+            productoItem.innerHTML = `
+                <label for="producto-${productoCount}">Producto:</label>
+                <input type="text" class="producto" name="producto[]" id="producto-${productoCount}" required>
+
+                <label for="cantidad-${productoCount}">Cantidad:</label>
+                <input type="number" class="cantidad" name="cantidad[]" id="cantidad-${productoCount}" required>
+
+                <label for="precio-${productoCount}">Precio por Unidad:</label>
+                <input type="number" class="precio" name="precio[]" id="precio-${productoCount}" required>
+
+                <button type="button" class="remove-producto">Eliminar Producto</button>
+            `;
+            container.appendChild(productoItem);
+
+            // Eliminar producto
+            productoItem.querySelector('.remove-producto').addEventListener('click', function() {
+                container.removeChild(productoItem);
+            });
+        });
+
+        // Enviar el formulario de la factura
+        document.getElementById('facturaForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+            const data = {
+                nombre_cliente: formData.get('nombre'),
+                productos: []
+            };
+
+            formData.getAll('producto[]').forEach((producto, index) => {
+                data.productos.push({
+                    nombre: producto,
+                    cantidad: formData.getAll('cantidad[]')[index],
+                    precio: formData.getAll('precio[]')[index]
+                });
+            });
+
+            // Enviar la factura al servidor
+            fetch('http://localhost:3000/generarFactura', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                console.log('Factura generada:', result);
+                alert('Factura generada exitosamente');
+                location.reload();  // Recargar la página para ver la lista actualizada
+            })
+            .catch(error => {
+                console.error('Error al generar la factura:', error);
+            });
+        });
     </script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-/* Estilos generales del sitio */
+/* Variables para colores principales */
 :root {
   --main-color: #ffffff;
   --primary-bg: #007bff;
@@ -6,63 +6,79 @@
   --hover-color: #ff6600;
 }
 
+/* Reset de estilos */
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
+/* Estilos del cuerpo */
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
   margin: 0;
 }
 
+/* Estilo del encabezado */
 .main-header {
   background-color: var(--primary-bg);
   padding: 10px 0;
   width: 100%;
 }
 
+/* Contenedor del menú */
 nav {
   display: flex;
   justify-content: center; /* Centra el menú */
 }
 
+/* Lista de navegación */
 .navigation {
-  list-style-type: none; /* Eliminar los puntos de lista */
-  display: flex; /* Mostrar los elementos en línea */
-  justify-content: space-around; /* Espacio uniforme entre los elementos */
+  list-style-type: none; /* Sin puntos en la lista */
+  display: flex; /* Elementos en línea */
+  justify-content: space-around; /* Espacio uniforme entre elementos */
   margin: 0;
   padding: 0;
 }
 
+/* Elementos del menú */
 .navigation li {
   padding: 10px;
 }
 
+/* Enlaces del menú */
 .navigation a {
-  text-decoration: none; /* Eliminar el subrayado */
-  color: white; /* Color de texto */
-  font-size: 18px; /* Tamaño de la fuente */
-  font-weight: 400; /* Peso de la fuente */
+  text-decoration: none; /* Sin subrayado */
+  color: white; /* Color del texto */
+  font-size: 18px; /* Tamaño de fuente */
+  font-weight: 400; /* Grosor de fuente */
   padding: 10px;
-  display: block;
-  transition: all 0.3s ease; /* Transición suave al pasar el ratón */
-  text-transform: uppercase; /* Poner en mayúsculas */
+  display: flex; /* Para alinear íconos y texto */
+  align-items: center; /* Centra íconos y texto verticalmente */
+  gap: 8px; /* Espaciado entre ícono y texto */
+  transition: all 0.3s ease; /* Transición suave */
+  text-transform: uppercase; /* Texto en mayúsculas */
 }
 
+/* Tamaño y estilo de los íconos */
+.navigation a i {
+  font-size: 20px; /* Tamaño del ícono */
+}
+
+/* Hover en enlaces */
 .navigation a:hover {
-  background-color: #0056b3; /* Color de fondo cuando se pasa el ratón */
+  background-color: #0056b3; /* Fondo al pasar el ratón */
   border-radius: 5px; /* Bordes redondeados */
+  transform: scale(1.05); /* Efecto de ampliación */
 }
 
-
-/* Estilos de la página y pie de página */
+/* Estilos generales de la página */
 main {
   padding: 20px;
 }
 
+/* Estilo del pie de página */
 footer {
   text-align: center;
   padding: 10px;
@@ -73,11 +89,11 @@ footer {
   width: 100%;
 }
 
-/* Estilos para pantallas más pequeñas */
+/* Responsividad para pantallas pequeñas */
 @media screen and (max-width: 768px) {
   .navigation {
-    flex-direction: column;
-    align-items: center; /* Centra los elementos verticalmente en pantallas pequeñas */
+    flex-direction: column; /* Apila elementos verticalmente */
+    align-items: center; /* Centra elementos */
   }
 
   .navigation li {

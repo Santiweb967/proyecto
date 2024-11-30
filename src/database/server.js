@@ -157,16 +157,45 @@ app.post('/updateCargo', (req, res) => {
 
 // Ruta para obtener las facturas generadas
 app.get('/getFacturas', (req, res) => {
-    // Consulta a la base de datos para obtener las facturas
-    db.query('SELECT * FROM facturas', (err, results) => {
+    // Consulta para obtener las facturas con los productos asociados
+    const query = `
+        SELECT facturas.id AS factura_id, facturas.nombre_cliente, facturas.total, 
+               productos_factura.producto, productos_factura.cantidad, productos_factura.precio
+        FROM facturas
+        LEFT JOIN productos_factura ON facturas.id = productos_factura.factura_id
+        ORDER BY facturas.id;
+    `;
+
+    db.query(query, (err, results) => {
         if (err) {
             return res.status(500).json({ error: 'Error al obtener las facturas' });
         }
 
-        // Si no hay facturas, enviar una lista vacía
-        res.status(200).json(results);
+        // Agrupar los resultados por factura (si hay productos asociados)
+        const facturas = [];
+        results.forEach(row => {
+            let factura = facturas.find(f => f.id === row.factura_id);
+            if (!factura) {
+                factura = {
+                    id: row.factura_id,
+                    nombre_cliente: row.nombre_cliente,
+                    total: row.total,
+                    productos: []
+                };
+                facturas.push(factura);
+            }
+            factura.productos.push({
+                producto: row.producto,
+                cantidad: row.cantidad,
+                precio: row.precio
+            });
+        });
+
+        res.status(200).json(facturas);
     });
 });
+
+
 
 // Ruta para guardar la factura
 app.post('/guardarFactura', (req, res) => {
