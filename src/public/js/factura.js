@@ -186,10 +186,10 @@ document.addEventListener("DOMContentLoaded", function () {
         doc.setFontSize(12); // Establecer el tamaño de fuente para el resto del texto
         doc.text("Emisor: Empresa XYZ S.A.S.", 10, 40);
         doc.text("NIT: 1234567890", 10, 50);
-        doc.text("Dirección: Calle 123, Bogotá, Colombia", 10, 60);
+        doc.text("Dirección: Calle 123, Cali, Colombia", 10, 60);
 
         doc.text(`Receptor: ${nombre}`, 10, 80);
-        doc.text("Dirección: Calle 456, Medellín, Colombia", 10, 100);
+        doc.text("Dirección: Calle 456, Cali, Colombia", 10, 100);
 
         let y = 120; // Posición vertical para las tablas
         doc.setFontSize(12);
