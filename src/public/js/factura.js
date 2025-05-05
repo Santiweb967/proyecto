@@ -115,8 +115,7 @@ function cargarFacturas() {
             }
         })
         .catch(err => {
-            console.error('Error al cargar las facturas:', err); // Mostrar el error en consola
-            alert('Error al cargar las facturas.');
+            
         });
 }
 

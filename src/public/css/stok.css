@@ -11,12 +11,42 @@ header {
 form {
     margin: 30px auto; /* Margen vertical y centrado horizontal */
     width: 80%; /* Ancho del formulario al 80% */
-    max-width: 600px; /* Ancho máximo de 600px */
+    max-width: 900px; /* Ancho máximo de 600px */
     padding: 20px; /* Espacio interno */
-    background-color: #f9f9f9; /* Fondo gris claro */
+    background-color:#007bff; /* Fondo gris claro */
     border-radius: 8px; /* Bordes redondeados */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
+.search-container {
+    margin-bottom: 20px; /* Espacio entre el buscador y los demás elementos */
+    text-align: center; /* Centrar el input */
+  }
+
+  /* Estilos para el input de búsqueda */
+  #search-input {
+    width: 300px; /* Ancho del input */
+    padding: 10px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de la fuente */
+    border: 1px solid #ccc; /* Borde del input */
+    border-radius: 5px; /* Bordes redondeados */
+  }
+ /* Contenedor Grid para los inputs */
+    .input-row {
+      display: grid; /* Activa Grid */
+      grid-template-columns: repeat(4, 1fr); /* 4 columnas de igual tamaño */
+      gap: 10px; /* Espacio entre los inputs */
+      margin-bottom: 20px; /* Margen inferior */
+    }
+
+    /* Estilos para los inputs */
+    .input-row input {
+      padding: 10px; /* Espaciado interno */
+      font-size: 16px; /* Tamaño de la fuente */
+      border: 1px solid #ccc; /* Borde del input */
+      border-radius: 5px; /* Bordes redondeados */
+    }
+
+
 
 /* Estilo para los inputs */
 input {
@@ -33,6 +63,7 @@ input:focus {
     outline: none; /* Elimina el borde de enfoque predeterminado */
     border-color: #4caf50; /* Cambia el borde a verde al enfocar */
 }
+
 
 /* Estilo para el botón */
 button {
@@ -89,7 +120,7 @@ button.edit {
 
 /* Efecto al pasar el ratón sobre el botón de editar */
 button.edit:hover {
-    background-color: #e69500; /* Fondo naranja más oscuro al hacer hover */
+    background-color: #e6960097; /* Fondo naranja más oscuro al hacer hover */
 }
 
 button.outofstock {
@@ -120,7 +151,7 @@ button.outofstock:hover {
 
 /* Estilo para el pie de página */
 footer {
-    background-color: #333; /* Fondo gris oscuro */
+    background-color: #007bff; /* Fondo gris oscuro */
     color: #fff; /* Texto blanco */
     text-align: center; /* Centra el texto */
     padding: 10px; /* Espaciado interno */

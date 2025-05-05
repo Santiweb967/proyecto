@@ -21,16 +21,22 @@
         </nav>
     </header>
 
-    <main>
-        <form id="product-form">
-            <!-- Campo de búsqueda -->
+    
+        <div class="search-container">
             <input type="text" id="search-input" placeholder="Buscar producto" oninput="searchProducts()">
+        </div>
+        
+        <form id="product-form">
+        <div class="input-row">
             <input type="text" id="product-name" name="productname" placeholder="Nombre del producto" required>
             <input type="text" id="product-mark" placeholder="Marca del producto" required>
             <input type="number" id="product-quantity" placeholder="Cantidad" required>
             <input type="number" id="product-price" placeholder="Precio Unitario" required>
+        </div>
+        <div class="buttonn-container">
             <button type="submit" id="submit-btn" name="submit">Agregar Producto</button>
             <button type="button" id="save-btn" style="display:none;" onclick="saveProduct()">Guardar Cambios</button>
+        </div>
         </form>
 
         <table id="product-table">
